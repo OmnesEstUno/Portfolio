@@ -1,6 +1,14 @@
-.landing {
-    width: 100%;
-    height: auto;
+@media (max-width : 1024px) {
+    .landing {
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-width : 480px) {
+    .landing {
+        width: auto;
+        height: 100%;
+    }
 }
 
 .name {
