@@ -1,5 +1,4 @@
 .landing {
-    position: relative;
-    size: 50%;
-    overflow: hidden;
+    width: 100%;
+    height: auto;
 }
