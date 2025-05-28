@@ -10,23 +10,24 @@
     top: 25%;
     left: 10%;
     animation: fade-in ease-in 2s;
-}
+    }
 }
 @media (max-width : 480px) {
+    
     .landing {
+        height: 100vh;
         width: auto;
-        height: 100%;
     }
 
     .name {
     position: absolute;
     width: 4em;
-    top: 25%;
-    left: 10%;
+    top: 3%;
+    left: 30%;
     animation: fade-in ease-in 2s;
     }
 
-    .enterence {
+    .enterance {
         display: flex;
         justify-content: center;
         align-items: center;
