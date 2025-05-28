@@ -2,3 +2,21 @@
     width: 100%;
     height: auto;
 }
+
+.name {
+    position: absolute;
+    width: 4em;
+    top: 25%;
+    left: 10%;
+    animation: fade-in ease-in 2s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
