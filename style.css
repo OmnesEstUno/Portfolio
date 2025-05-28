@@ -1,22 +1,36 @@
-@media (max-width : 1024px) {
+@media (max-width : 1920px) {
     .landing {
         width: 100%;
         height: auto;
     }
+
+    .name {
+    position: absolute;
+    width: 4em;
+    top: 25%;
+    left: 10%;
+    animation: fade-in ease-in 2s;
+}
 }
 @media (max-width : 480px) {
     .landing {
         width: auto;
         height: 100%;
     }
-}
 
-.name {
+    .name {
     position: absolute;
     width: 4em;
     top: 25%;
     left: 10%;
     animation: fade-in ease-in 2s;
+    }
+
+    .enterence {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @keyframes fade-in {
