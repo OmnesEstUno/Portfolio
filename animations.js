@@ -1,3 +1,6 @@
+// This file contains variables and functions responsible for the animations 
+// within my portfolio.
+
 const image = document.getElementById('landing');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.001; // Amount to increase scale on each scroll
@@ -8,8 +11,9 @@ if (image !== undefined && image !== null) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, () => {
             if (event === "wheel"){
+                var test = 0;
                 deltaY = event.deltaY;
-                console.log(deltaY);
+                console.log(test);
             } else if (event === "touchstart") {
                 initY = event.touches[0].pageY;
             } else {
