@@ -4,6 +4,7 @@
 
     document.addEventListener('scroll', () => {
         const scrollPosition = window.scrollY;
+        console.log(scrollPosition);
         const newZoom = initialZoom + scrollPosition * zoomSpeed;
         image.style.transform = `scale(${newZoom})`;
     });
