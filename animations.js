@@ -11,10 +11,10 @@ if (image !== undefined && image !== null) {
             var deltaY = 0;
             var initY = 0;
             console.log(event);
-            if (event === "wheel"){
+            if (event.type === "wheel"){
                 deltaY = event.deltaY;
                 console.log(deltaY);
-            } else if (event === "touchstart") {
+            } else if (event.type === "touchstart") {
                 initY = event.touches[0].pageY;
             } else {
                 deltaY = initY - event.touches[0].pageY;
