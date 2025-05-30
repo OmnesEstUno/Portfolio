@@ -25,6 +25,7 @@ body {
         position: sticky;
         height: 100vh;
         width: auto;
+        will-change: scale;
     }
 
     .name {
