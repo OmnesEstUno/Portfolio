@@ -7,7 +7,7 @@ const zoomSpeed = 0.001; // Amount to increase scale on each scroll
 
 if (image !== undefined && image !== null) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
-        document.addEventListener(event, () => {
+        document.addEventListener(event, (event) => {
             var deltaY = 0;
             var initY = 0;
             if (event === "wheel"){
