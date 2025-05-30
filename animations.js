@@ -1,4 +1,4 @@
-const image = document.getElementsByClassName('landing');
+const image = document.getElementsById('landing');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.01; // Amount to increase scale on each scroll
 
