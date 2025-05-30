@@ -1,6 +1,6 @@
 const image = document.getElementById('landing');
 let initialZoom = 1; // Initial scale factor
-const zoomSpeed = 0.01; // Amount to increase scale on each scroll
+const zoomSpeed = 0.001; // Amount to increase scale on each scroll
 
 if (image !== undefined && image !== null) {
     document.addEventListener('scroll', () => {
