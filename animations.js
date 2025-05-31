@@ -4,9 +4,9 @@
 const image = document.getElementById('landing');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.005; // Amount to increase scale on each scroll
-const newZoom = 0;
+var newZoom = 0;
 const opacitySpeed = 0.0005
-const newOpacity = 0
+var newOpacity = 0
 var deltaY = 0;
 var initY = 0;
 
