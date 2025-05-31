@@ -26,7 +26,9 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
                 futureDeltaY >= 0 ? deltaY = futureDeltaY : deltaY = 0;
             }
             newZoom = initialZoom + deltaY * zoomSpeed;
-             let futureOpacity = initialZoom - deltaY * opacitySpeed;
+            // If value goes beyond 0 in negative, reset to 0
+            let futureOpacity = initialZoom - deltaY * opacitySpeed;
+            console.log(futureOpacity);
             futureOpacity >= 0 ? newOpacity = futureOpacity : newOpacity = 0;
             let transMtx = calcTranslate(newOpacity);
             console.log(transMtx);
