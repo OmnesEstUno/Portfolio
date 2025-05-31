@@ -23,7 +23,8 @@ if (image !== undefined && image !== null) {
             const newZoom = initialZoom + deltaY * zoomSpeed;
             const newOpacity = initialZoom - deltaY * zoomSpeed;
             console.log("new zoom: " + newZoom)
-            image.style.transform = `scale(${newZoom});\nopacity: ${newOpacity}`;
+            image.style.transform = `scale(${newZoom});`;
+            image.style.opacity = newOpacity;
         });
     })
 }
