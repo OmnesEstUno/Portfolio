@@ -14,15 +14,11 @@ var initY = 0;
 if (image !== undefined && image !== null && nameTitle !== undefined && nameTitle !== null) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
-            //REMOVE CLOG
-            console.log(event);
             if (event.type === "wheel"){
                 event.cancelable = false;
                 // If value goes beyond 0 in negative, reset to 0
                 let futureDeltaY = deltaY + event.deltaY;
                 futureDeltaY >= 0 ? deltaY = futureDeltaY : deltaY = 0;
-                //REMOVE CLOG
-                console.log("delta Y: " + deltaY);
             } else if (event.type === "touchstart") {
                 initY = event.touches[0].pageY;
             } else {
@@ -32,8 +28,7 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
             newZoom = initialZoom + deltaY * zoomSpeed;
             newOpacity = initialZoom - deltaY * opacitySpeed;
             let transMtx = calcTranslate(newOpacity);
-            //REMOVE CLOG
-            console.log("new zoom: " + newZoom);
+            console.log(transMtx);
             image.style.transform = `scale(${newZoom});`;
             image.style.opacity = newOpacity;
             transMtx.length === 3 ? nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px);` :null;
@@ -42,6 +37,7 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
 }
 
 function calcTranslate(opacity) {
+    console.log("opacity inside fn: " + opacity);
     let targetW = 4;
     let targetX = 430;
     let targetY = 260;
