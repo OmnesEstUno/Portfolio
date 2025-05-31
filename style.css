@@ -3,6 +3,11 @@ body {
 }
 
 @media (max-width : 1920px) {
+    .enterance {
+        position: sticky;
+        top: 0px;
+        z-index: -1;
+    }
     .landing {
         width: 100%;
         height: auto;
@@ -13,8 +18,7 @@ body {
     color: white;
     position: absolute;
     width: 4em;
-    top: 25%;
-    left: 10%;
+    top: 0px;
     animation: fade-in ease-in 2s;
     }
 }
@@ -36,9 +40,12 @@ body {
     }
 
     .enterance {
+        position: sticky;
+        top: 0px;
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: -1;
     }
 }
 

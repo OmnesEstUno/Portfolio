@@ -4,7 +4,9 @@
 const image = document.getElementById('landing');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.005; // Amount to increase scale on each scroll
+const newZoom = 0;
 const opacitySpeed = 0.0005
+const newOpacity = 0
 var deltaY = 0;
 var initY = 0;
 
@@ -24,8 +26,8 @@ if (image !== undefined && image !== null) {
                 let futureDeltaY = deltaY + initY - event.touches[0].pageY;
                 futureDeltaY >= 0 ? deltaY = futureDeltaY : deltaY = 0;
             }
-            const newZoom = initialZoom + deltaY * zoomSpeed;
-            const newOpacity = initialZoom - deltaY * opacitySpeed;
+            newZoom = initialZoom + deltaY * zoomSpeed;
+            newOpacity = initialZoom - deltaY * opacitySpeed;
             console.log("new zoom: " + newZoom);
             image.style.transform = `scale(${newZoom});`;
             image.style.opacity = newOpacity;
