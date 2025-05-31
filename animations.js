@@ -4,12 +4,12 @@
 const image = document.getElementById('landing');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.005; // Amount to increase scale on each scroll
+var deltaY = 0;
+var initY = 0;
 
 if (image !== undefined && image !== null) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
-            var deltaY = 0;
-            var initY = 0;
             console.log(event);
             if (event.type === "wheel"){
                 event.cancelable = false;
