@@ -42,7 +42,7 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
 }
 
 function calcTranslate(opacity) {
-    let targetW = 8;
+    let targetW = 4;
     let targetX = 430;
     let targetY = 260;
     let percent = 1 - (opacity / 1);
