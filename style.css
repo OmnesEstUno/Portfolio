@@ -16,12 +16,12 @@ body {
     }
 
     .name {
-    color: white;
-    position: fixed;
-    width: 4em;
-    bottom: 60vh;
-    left: 42vh;
-    animation: fade-in ease-in 2s;
+        color: white;
+        position: fixed;
+        width: 4em;
+        bottom: 60vh;
+        left: 42vh;
+        animation: fade-in ease-in 2s;
     }
 }
 
@@ -35,12 +35,12 @@ body {
     }
 
     .name {
-    color: white;
-    position: fixed;
-    width: 4em;
-    top: 3%;
-    left: 30%;
-    animation: fade-in ease-in 2s;
+        color: white;
+        position: fixed;
+        width: 4em;
+        top: 3%;
+        left: 30%;
+        animation: fade-in ease-in 2s;
     }
 
     .enterance {
