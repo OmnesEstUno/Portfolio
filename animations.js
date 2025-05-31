@@ -26,7 +26,8 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
                 futureDeltaY >= 0 ? deltaY = futureDeltaY : deltaY = 0;
             }
             newZoom = initialZoom + deltaY * zoomSpeed;
-            newOpacity = initialZoom - deltaY * opacitySpeed;
+             let futureOpacity = initialZoom - deltaY * opacitySpeed;
+            futureOpacity >= 0 ? newOpacity = futureOpacity : newOpacity = 0;
             let transMtx = calcTranslate(newOpacity);
             console.log(transMtx);
             image.style.transform = `scale(${newZoom});`;
