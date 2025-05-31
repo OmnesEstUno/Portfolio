@@ -2,6 +2,7 @@
 // within my portfolio.
 
 const image = document.getElementById('landing');
+const nameTitle = document.getElementById('name');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.005; // Amount to increase scale on each scroll
 var newZoom = 0;
@@ -31,6 +32,7 @@ if (image !== undefined && image !== null) {
             console.log("new zoom: " + newZoom);
             image.style.transform = `scale(${newZoom});`;
             image.style.opacity = newOpacity;
+            nameTitle.style.opacity = newOpacity;
         });
     })
 }
