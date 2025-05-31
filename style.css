@@ -4,7 +4,6 @@ body {
 
 @media (max-width : 1920px) {
     .landing {
-        position:sticky;
         width: 100%;
         height: auto;
         will-change: scale;
@@ -22,7 +21,6 @@ body {
 @media (max-width : 480px) {
     
     .landing {
-        position: sticky;
         height: 100vh;
         width: auto;
         will-change: scale;
