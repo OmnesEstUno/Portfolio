@@ -10,15 +10,15 @@ if (image !== undefined && image !== null) {
         document.addEventListener(event, (event) => {
             var deltaY = 0;
             var initY = 0;
-            console.log("event: " + event);
+            console.log(event);
             if (event.type === "wheel"){
                 event.cancelable = false;
-                deltaY = event.deltaY;
+                deltaY += event.deltaY;
                 console.log("delta Y: " + deltaY);
             } else if (event.type === "touchstart") {
                 initY = event.touches[0].pageY;
             } else {
-                deltaY = initY - event.touches[0].pageY;
+                deltaY += initY - event.touches[0].pageY;
             }
             const newZoom = initialZoom + deltaY * zoomSpeed;
             const newOpacity = initialZoom - deltaY * zoomSpeed;
