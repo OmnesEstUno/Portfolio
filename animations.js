@@ -1,35 +1,48 @@
 // This file contains variables and functions responsible for the animations 
 // within my portfolio.
+// Author: Elliot Warren
+// linkedIn: https://www.linkedin.com/in/elliot-warren/
 
 const image = document.getElementById('landing');
 const nameTitle = document.getElementById('name');
 let initialZoom = 1; // Initial scale factor
-const zoomSpeed = 0.005; // Amount to increase scale on each scroll
-var newZoom = 0;
-const opacitySpeed = 0.0005
-var newOpacity = 0
-var deltaY = 0;
-var initY = 0;
+const zoomSpeed = 0.005; // Amount to increase scale on each wheel event
+var newZoom = 0; // Value to set scale property to
+const opacitySpeed = 0.0005 // Amount to scale opacity on each wheel event
+var newOpacity = 0 // Value to set to opacity property to
+var deltaY = 0; // pixel distance "covered" per wheel event
+var initY = 0; // Start location for reference on mobile
+const targetW = 4; // Additional width to grant the name space to be 1 ln
+const targetX = 430; // Desktop X translation target
+const targetY = 260; // Desktop Y translation target
 
-if (image !== undefined && image !== null && nameTitle !== undefined && nameTitle !== null) {
+if (image !== undefined && image !== null && nameTitle !== undefined && nameTitle !== null && deltaY >= 0) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
+            // Comparitor for the type of device used 
+            // extrapolated from the screen width.
+            // decides how to record the deltaY
+            console.log("deltaY: " + deltaY);
             if (event.type === "wheel"){
                 event.cancelable = false;
-                // If value goes beyond 0 in negative, reset to 0
-                let futureDeltaY = deltaY + event.deltaY;
-                futureDeltaY >= 0 ? deltaY = futureDeltaY : deltaY = 0;
+                deltaY += event.deltaY;
             } else if (event.type === "touchstart") {
                 initY = event.touches[0].pageY;
             } else {
-                let futureDeltaY = deltaY + initY - event.touches[0].pageY;
-                futureDeltaY >= 0 ? deltaY = futureDeltaY : deltaY = 0;
+                deltaY += initY - event.touches[0].pageY;
             }
-            newZoom = initialZoom + deltaY * zoomSpeed;
-            // If value goes beyond 0 in negative, reset to 0
-            let futureOpacity = initialZoom - deltaY * opacitySpeed;
-            console.log(futureOpacity);
-            futureOpacity >= 0 ? newOpacity = futureOpacity : newOpacity = 0;
+
+            // Sets manipulation factor values where 0 is floor
+            if (deltaY === 0){
+                newZoom = 0;
+                newOpacity = 0;
+            } else {
+                newZoom = initialZoom + deltaY * zoomSpeed;
+                newOpacity = initialZoom - deltaY * opacitySpeed;
+            }
+            console.log("newZoom: " + newZoom);
+            console.log("newOpacity: " + newOpacity);
+
             let transMtx = calcTranslate(newOpacity);
             console.log(transMtx);
             image.style.transform = `scale(${newZoom});`;
@@ -41,9 +54,6 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
 
 function calcTranslate(opacity) {
     console.log("opacity inside fn: " + opacity);
-    let targetW = 4;
-    let targetX = 430;
-    let targetY = 260;
     let percent = 1 - (opacity / 1);
     let instW = percent * targetW;
     let instX = percent * targetX;
