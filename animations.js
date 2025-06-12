@@ -16,20 +16,23 @@ const targetW = 4; // Additional width to grant the name space to be 1 ln
 const targetX = 430; // Desktop X translation target
 const targetY = 260; // Desktop Y translation target
 
-if (image !== undefined && image !== null && nameTitle !== undefined && nameTitle !== null) {
+if (image && nameTitle) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
             // Comparitor for the type of device used 
             // extrapolated from the screen width.
             // decides how to record the deltaY
             console.log("deltaY: " + deltaY);
-            if (event.type === "wheel"){
-                event.cancelable = false;
-                deltaY += event.deltaY;
-            } else if (event.type === "touchstart") {
-                initY = event.touches[0].pageY;
-            } else {
-                deltaY += initY - event.touches[0].pageY;
+            if(newOpacity >= 0){
+                if (event.type === "wheel"){
+                    event.cancelable = false;
+                    deltaY += event.deltaY;
+                } else if (event.type === "touchstart") {
+                    initY = event.touches[0].pageY;
+                } else if (event.type === 'touchmove') {
+                    // Calculate delta for touch move
+                    deltaY += (initY - (event.touches[0]?.pageY || initY));
+                }
             }
 
             // Sets manipulation factor values where 0 is floor
@@ -41,6 +44,7 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
             } else {
                 newZoom = initialZoom + deltaY * zoomSpeed;
                 newOpacity = initialZoom - deltaY * opacitySpeed;
+                newOpacity = Math.max(0, Math.min(1, newOpacity));
             }
             console.log("newZoom: " + newZoom);
             console.log("newOpacity: " + newOpacity);
