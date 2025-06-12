@@ -39,8 +39,6 @@ if (image && nameTitle) {
             if (deltaY <= 0){
                 newZoom = 1;
                 newOpacity = 1;
-            } else if (newOpacity <= 0){
-                newOpacity = 0;
             } else {
                 newZoom = initialZoom + deltaY * zoomSpeed;
                 newOpacity = initialZoom - deltaY * opacitySpeed;
@@ -51,6 +49,8 @@ if (image && nameTitle) {
 
             let transMtx = calcTranslate(newOpacity);
             console.log(transMtx);
+            console.log("Computed transform:", getComputedStyle(image).transform);
+            console.log(`scale(${newZoom});`);
             image.style.transform = `scale(${newZoom});`;
             image.style.opacity = newOpacity;
             transMtx.length === 3 ? nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px);` :null;
