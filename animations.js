@@ -16,7 +16,7 @@ const targetW = 4; // Additional width to grant the name space to be 1 ln
 const targetX = 430; // Desktop X translation target
 const targetY = 260; // Desktop Y translation target
 
-if (image !== undefined && image !== null && nameTitle !== undefined && nameTitle !== null && deltaY >= 0) {
+if (image !== undefined && image !== null && nameTitle !== undefined && nameTitle !== null) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
             // Comparitor for the type of device used 
@@ -33,8 +33,10 @@ if (image !== undefined && image !== null && nameTitle !== undefined && nameTitl
             }
 
             // Sets manipulation factor values where 0 is floor
-            if (deltaY === 0){
-                newZoom = 0;
+            if (deltaY <= 0){
+                newZoom = 1;
+                newOpacity = 1;
+            } else if (newOpacity <= 0){
                 newOpacity = 0;
             } else {
                 newZoom = initialZoom + deltaY * zoomSpeed;
