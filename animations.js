@@ -17,14 +17,13 @@ const targetW = 15; // Additional width to grant the name space to be 1 ln
 const targetX = 300; // Desktop X translation target
 const targetY = 260; // Desktop Y translation target
 
-if (image && nameTitle && resume) {
+if (image && nameTitle && resume && deltaY <= document.documentElement.scrollHeight) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
             // Comparitor for the type of device used 
             // extrapolated from the screen width.
             // decides how to record the deltaY
-            console.log(document.documentElement.scrollHeight);
-            if(newOpacity >= 0 && event.deltaY <= document.documentElement.scrollHeight){
+            if(newOpacity >= 0){
                 if (event.type === "wheel"){
                     event.cancelable = false;
                     deltaY += event.deltaY;
