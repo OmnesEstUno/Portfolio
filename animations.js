@@ -23,7 +23,6 @@ if (image && nameTitle && resume) {
             // Comparitor for the type of device used 
             // extrapolated from the screen width.
             // decides how to record the deltaY
-            console.log("deltaY: " + deltaY);
             if(newOpacity >= 0){
                 if (event.type === "wheel"){
                     event.cancelable = false;
@@ -40,7 +39,6 @@ if (image && nameTitle && resume) {
             if (deltaY <= 0){
                 newZoom = 1;
                 newOpacity = 1;
-            } else if (newOpacity ) {
             } else {
                 newZoom = initialZoom + deltaY * zoomSpeed;
                 newOpacity = initialZoom - deltaY * opacitySpeed;
