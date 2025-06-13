@@ -26,7 +26,7 @@ if (image && nameTitle && resume && deltaY <= document.documentElement.scrollHei
             if(newOpacity >= 0){
                 if (event.type === "wheel"){
                     event.cancelable = false;
-                    deltaY += event.deltaY;
+                    deltaY += Math.max(0, Math.min(950, event.deltaY));
                 } else if (event.type === "touchstart") {
                     initY = event.touches[0].pageY;
                 } else if (event.type === 'touchmove') {
@@ -55,7 +55,7 @@ if (image && nameTitle && resume && deltaY <= document.documentElement.scrollHei
             resume.style.opacity = 1 - newOpacity;
             transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, nameTitle.style.width = `${transMtx[0]}rem`) :null;
             if (1-newOpacity === 1) {
-                resume.style.position = "none";
+                resume.style.removeProperty("position");
             }
         });
     })
