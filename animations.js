@@ -13,7 +13,7 @@ const opacitySpeed = 0.0005 // Amount to scale opacity on each wheel event
 var newOpacity = 0 // Value to set to opacity property to
 var deltaY = 0; // pixel distance "covered" per wheel event
 var initY = 0; // Start location for reference on mobile
-const targetW = 4; // Additional width to grant the name space to be 1 ln
+const targetW = 15; // Additional width to grant the name space to be 1 ln
 const targetX = 300; // Desktop X translation target
 const targetY = 260; // Desktop Y translation target
 
@@ -49,7 +49,7 @@ if (image && nameTitle && resume) {
             let transMtx = calcTranslate(newOpacity);
 
             // Set styles based on deltaY
-            image.style.transform = `scale(${newZoom});`;
+            image.style.transform = `scale(${newZoom})`;
             image.style.opacity = newOpacity;
             resume.style.opacity = 1 - newOpacity;
             transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, nameTitle.style.width = transMtx[0]) :null;
