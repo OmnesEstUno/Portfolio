@@ -5,6 +5,7 @@
 
 const image = document.getElementById('landing');
 const nameTitle = document.getElementById('name');
+const resume = document.getElementById('resume');
 let initialZoom = 1; // Initial scale factor
 const zoomSpeed = 0.005; // Amount to increase scale on each wheel event
 var newZoom = 0; // Value to set scale property to
@@ -16,7 +17,7 @@ const targetW = 4; // Additional width to grant the name space to be 1 ln
 const targetX = 430; // Desktop X translation target
 const targetY = 260; // Desktop Y translation target
 
-if (image && nameTitle) {
+if (image && nameTitle && resume) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
             // Comparitor for the type of device used 
@@ -39,30 +40,29 @@ if (image && nameTitle) {
             if (deltaY <= 0){
                 newZoom = 1;
                 newOpacity = 1;
+            } else if (newOpacity ) {
             } else {
                 newZoom = initialZoom + deltaY * zoomSpeed;
                 newOpacity = initialZoom - deltaY * opacitySpeed;
                 newOpacity = Math.max(0, Math.min(1, newOpacity));
             }
-            console.log("newZoom: " + newZoom);
-            console.log("newOpacity: " + newOpacity);
 
+            // Generate positional matrix to move title as deltaY changes
             let transMtx = calcTranslate(newOpacity);
-            console.log(transMtx);
-            console.log("Computed transform:", getComputedStyle(image).transform);
-            console.log(`scale(${newZoom});`);
+
+            // Set styles based on deltaY
             image.style.transform = `scale(${newZoom});`;
             image.style.opacity = newOpacity;
-            transMtx.length === 3 ? nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px);` :null;
+            resume.style.opacity = 1 - newOpacity;
+            transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px);`, nameTitle.style.width = transMtx[0]) :null;
         });
     })
 }
 
 function calcTranslate(opacity) {
-    console.log("opacity inside fn: " + opacity);
     let percent = 1 - (opacity / 1);
-    let instW = percent * targetW;
-    let instX = percent * targetX;
-    let instY = percent * targetY;
-    return [instW, instX, instY];
+    let instW = percent * targetW; // width to allow the title to occupy one line
+    let instX = percent * targetX; // x position for the title
+    let instY = percent * targetY; // y position for the title
+    return [instW, instX, instY, percent];
 }

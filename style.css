@@ -1,5 +1,7 @@
 body {
     background-color: black;
+    overscroll-behavior-y: none;
+    overscroll-behavior: none;
 }
 
 /* For Desktop viewing */
@@ -61,4 +63,8 @@ body {
     100% {
         opacity: 1;
     }
+}
+
+.resume {
+    color: white;
 }
