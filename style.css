@@ -1,7 +1,5 @@
 body {
     background-color: black;
-    overscroll-behavior-y: none;
-    overscroll-behavior: none;
 }
 
 /* For Desktop viewing */
@@ -67,4 +65,7 @@ body {
 
 .resume {
     color: white;
+    position: fixed;
+    overflow: hidden;
+    top: 10rem;
 }

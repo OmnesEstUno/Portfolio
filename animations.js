@@ -52,7 +52,7 @@ if (image && nameTitle && resume) {
             image.style.transform = `scale(${newZoom});`;
             image.style.opacity = newOpacity;
             resume.style.opacity = 1 - newOpacity;
-            transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px);`, nameTitle.style.width = transMtx[0]) :null;
+            transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, nameTitle.style.width = transMtx[0]) :null;
         });
     })
 }
