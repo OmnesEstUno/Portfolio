@@ -23,7 +23,8 @@ if (image && nameTitle && resume) {
             // Comparitor for the type of device used 
             // extrapolated from the screen width.
             // decides how to record the deltaY
-            if(newOpacity >= 0){
+            console.log(document.documentElement.scrollHeight);
+            if(newOpacity >= 0 && event.deltaY <= document.documentElement.scrollHeight){
                 if (event.type === "wheel"){
                     event.cancelable = false;
                     deltaY += event.deltaY;
@@ -42,6 +43,7 @@ if (image && nameTitle && resume) {
             } else {
                 newZoom = initialZoom + deltaY * zoomSpeed;
                 newOpacity = initialZoom - deltaY * opacitySpeed;
+                // Confine opacity between 0 and 1
                 newOpacity = Math.max(0, Math.min(1, newOpacity));
             }
 
@@ -52,7 +54,7 @@ if (image && nameTitle && resume) {
             image.style.transform = `scale(${newZoom})`;
             image.style.opacity = newOpacity;
             resume.style.opacity = 1 - newOpacity;
-            transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, nameTitle.style.width = transMtx[0]) :null;
+            transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, nameTitle.style.width = `${transMtx[0]}rem`) :null;
         });
     })
 }
