@@ -14,7 +14,7 @@ var newOpacity = 0 // Value to set to opacity property to
 var deltaY = 0; // pixel distance "covered" per wheel event
 var initY = 0; // Start location for reference on mobile
 const targetW = 4; // Additional width to grant the name space to be 1 ln
-const targetX = 430; // Desktop X translation target
+const targetX = 300; // Desktop X translation target
 const targetY = 260; // Desktop Y translation target
 
 if (image && nameTitle && resume) {

@@ -68,4 +68,16 @@ body {
     position: fixed;
     overflow: hidden;
     top: 10rem;
+    left: 40%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+dd {
+    display: list-item;
+}
+
+.date {
+    font-style: italic;
 }
