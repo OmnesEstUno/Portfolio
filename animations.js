@@ -55,7 +55,7 @@ if (image && nameTitle && resume && deltaY <= document.documentElement.scrollHei
             resume.style.opacity = 1 - newOpacity;
             transMtx.length === 4 ? (nameTitle.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, nameTitle.style.width = `${transMtx[0]}rem`) :null;
             if (1-newOpacity === 1) {
-                resume.style.position = '';
+                resume.style.position = "none";
             }
         });
     })
