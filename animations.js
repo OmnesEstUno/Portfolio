@@ -26,7 +26,7 @@ if (image && nameTitle && resume && deltaY <= document.documentElement.scrollHei
             if(newOpacity >= 0){
                 if (event.type === "wheel"){
                     event.cancelable = false;
-                    deltaY += Math.max(0, Math.min(950, event.deltaY));
+                    deltaY += event.deltaY;
                 } else if (event.type === "touchstart") {
                     initY = event.touches[0].pageY;
                 } else if (event.type === 'touchmove') {
