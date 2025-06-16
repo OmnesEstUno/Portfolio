@@ -21,8 +21,10 @@ const targetY = 260; // Desktop Y translation target
 if (image && nameTitle && resume) {
     ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
         document.addEventListener(event, (event) => {
+            console.log("deltaY: " + event.deltaY);
             if (event.deltaY <= 0 || event.deltaY >= document.documentElement.scrollHeight) {
                 overscrollDeltaY = event.deltaY;
+                console.log("overscrollDeltaY: " + overscrollDeltaY);
             }
             // Comparitor for the type of device used 
             // extrapolated from the screen width.
