@@ -6,6 +6,9 @@
         <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi"/>
         <meta name="theme-color" content="#02000c"/>
         <link rel="stylesheet" href="style.css" type="text/css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <meta name="description" content="Elliot Warren's Portfolio, hi mom!"/>
         <title>Elliot Warren's Portfolio</title>
     </head>
@@ -16,33 +19,56 @@
         <div class="enterance">
             <h1 class="name" id="name">Elliot Warren</h1>
         </div>
-        <div class="resume" id="resume" style="height: 4000px;">
-            <div class="work-history">
-                <h1>Work History</h1>
-                <dl>
-                    <dt>Independent Website Contracting</dt>
-                    <dt class="date">Feb 2025 - Present</dt>
-                    <dd>Created the website <a target="_blank" href="https://fsrauto.com">FSRAuto</a> for client from ground up using wordpress.</dd>
-                    <dd>Oversee SEO, Google Ads, and website security.</dd>
-                    <br>
-                    <dt>Paradyme Management Inc. at C3.ai</dt>
-                    <dt class="title">Junior AI/ML Software Developer</dt>
-                    <dt class="date">Sep 2024 - Feb 2025</dt>
-                    <dd>Contributed to the Architecture and building of full-stack features for U.S. Marine Corps staffing application utilizing TypeScript and C3 Type System, focusing on scalability and speed.</dd>
-                    <dd>Developed dynamic React-based front-end features, enhancing user experience and application performance.</dd>
-                    <dd>Contributed to increasing testing coverage by 150% across multiple federal contract codebases using CI/CD pipelines and Jasmine, improving code reliability.</dd>
-                    <dd>Utilized Jira for project management and issue tracking to streamline coordination and delivery of milestones.</dd>
-                    <br>
-                    <dt>United States Air Force</dt>
-                    <dt class="title">Aerospace Propulsion Mechanic & Programs Manager - Secret Clearance</dt>
-                    <dt class="date">Jan 2017 - Jan 2021</dt>
-                    <dd>Managed, coordinated, and scheduled mission essential training deployment for over 150 individuals</dd>
-                    <dd>Ensured regulatory compliance for production warehouses, adhering to OSHA and Air Force Instruction (AFI) safety and security protocols.</dd>
-                    <dd>Managed finances and inventory for an in-warehouse nutrition stop, contributing to its growth and operational efficiency.</dd>
-                </dl>
+        <section class="design-section resume" id="resume">
+            <h1 id="sectionTitle">Work History</h1>
+            <div class="timeline">
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class="timeline-component timeline-content">
+                    <dl>
+                        <dt>Independent Website Contracting</dt>
+                        <dt class="date">Feb 2025 - Present</dt>
+                        <dd>Created the website <a target="_blank" href="https://fsrauto.com">FSRAuto</a> for client from ground up using wordpress.</dd>
+                        <dd>Oversee SEO, Google Ads, and website security.</dd>
+                    </dl>
+                </div>
+                <div class="timeline-component timeline-content">
+                    <dl>
+                        <dt>Paradyme Management Inc. at C3.ai</dt>
+                        <dt class="title">Junior AI/ML Software Developer</dt>
+                        <dt class="date">Sep 2024 - Feb 2025</dt>
+                        <dd>Contributed to the Architecture and building of full-stack features for U.S. Marine Corps staffing application utilizing TypeScript and C3 Type System, focusing on scalability and speed.</dd>
+                        <dd>Developed dynamic React-based front-end features, enhancing user experience and application performance.</dd>
+                        <dd>Contributed to increasing testing coverage by 150% across multiple federal contract codebases using CI/CD pipelines and Jasmine, improving code reliability.</dd>
+                        <dd>Utilized Jira for project management and issue tracking to streamline coordination and delivery of milestones.</dd>
+                    </dl>
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-empty">
+                </div>
+                <div class="timeline-middle">
+                    <div class="timeline-circle"></div>
+                </div>
+                <div class=" timeline-component timeline-content">
+                    <dl>
+                        <dt>United States Air Force</dt>
+                        <dt class="title">Aerospace Propulsion Mechanic & Programs Manager - Secret Clearance</dt>
+                        <dt class="date">Jan 2017 - Jan 2021</dt>
+                        <dd>Managed, coordinated, and scheduled mission essential training deployment for over 150 individuals</dd>
+                        <dd>Ensured regulatory compliance for production warehouses, adhering to OSHA and Air Force Instruction (AFI) safety and security protocols.</dd>
+                        <dd>Managed finances and inventory for an in-warehouse nutrition stop, contributing to its growth and operational efficiency.</dd>
+                    </dl>
+                </div>
             </div>
+            <h1>Projects</h1>
             <div class="projects">
-                <h1>Projects</h1>
                 <dl>
                     <dt>AquaMate</dt>
                     <dd>Team leader for a group of seven, in the complete lifecycle development of an aquarium building website; from concept development, to presentation of the final product.</dd>
@@ -53,6 +79,7 @@
                     <dd>Assembled, troubleshooted, and demonstrated the final functioning self navigating car.</dd>
                 </dl>
             </div>
+            <h1>Education</h1>
             <div class="education">
                 <h1>Education</h1>
                 <h3>San Francisco State University</h3>
@@ -71,7 +98,7 @@
                     <li></li>
                 </ul>
             </div>
-        </div>
+        </section>
         <script src="animations.js"></script> 
     </body>
 </html>

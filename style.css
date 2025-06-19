@@ -1,5 +1,5 @@
 body {
-    background-color: #02000c;
+    background-color: transparent;
 }
 
 /* For Desktop viewing */
@@ -20,8 +20,8 @@ body {
         color: white;
         position: fixed;
         width: 4em;
-        bottom: 60vh;
-        left: 42vh;
+        top: 20%;
+        left: 20%;
         animation: fade-in ease-in 2s;
     }
 }
@@ -34,6 +34,7 @@ body {
         width: auto;
         will-change: transform;
         position: fixed;
+        top: 0px;
     }
 
     .name {
@@ -67,9 +68,10 @@ body {
 
 .resume {
     color: white;
+    background-color: transparent;
     opacity: 0;
     position: fixed;
-    overflow: hidden;
+    overflow: scroll;
     top: 10rem;
     display: flex;
     flex-flow: column wrap;
@@ -83,4 +85,82 @@ dd {
 
 .date {
     font-style: italic;
+}
+
+
+.resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 100px 0;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.design {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: #1f1f1f;
+    -webkit-box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
+            box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
+    border-radius: 5px;
+    color: white;
+    padding: 1.75rem;
+    transition: 0.4s ease;
+    overflow-wrap: break-word !important;
+    margin: 1rem;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.timeline-component {
+    margin: 0px 20px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .timeline {
+        display: grid;
+        grid-template-columns: 1fr 3px 1fr;
+    }
+    .timeline-middle {
+        position: relative;
+        background-image: linear-gradient(45deg, #59067a, #06187a, #59067a);
+        width: 3px;
+        height: 100%;
+    }
+    .main-middle {
+        opacity: 0;
+    }
+    .timeline-circle {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-image: linear-gradient(45deg, #59067a, #59067a, #59067a);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+}
+
+.fly-out {
+    transition: 0.5s;
 }
