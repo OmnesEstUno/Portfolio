@@ -1,0 +1,42 @@
+cap image opacity at 75%
+
+Make frosted header banner
+    name center
+    overscrollY hidden
+    L R radius on bottom 50%
+    social links above name
+    contact me button (email)
+    About me button
+
+
+Left side nav bar
+    wh, edu, proj, skills
+    btwn section, shadow with blured 20% radius bar, enlarge focused word
+        hombre blur (if not difficult)
+
+Simplify items on timeline
+    single line overview
+    only logo/company
+    button click to learn more
+        expands card to show details
+    larger nodes that have date range
+
+Projects (work in progress - do last)
+    picture on left (33vw), desc on right
+        picture clickable to dedicated page
+
+Education
+    only SFSU
+    image of school
+    degree, grad date underneath
+
+skills
+    grid of icons for each skill
+
+About Me page
+    Picture of myself
+    picture of cats
+    picture of computer
+    pictures of tanks
+    pictures of plants
+    hobbies/interests
