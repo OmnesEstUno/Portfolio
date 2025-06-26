@@ -12,12 +12,19 @@
         <meta name="description" content="Elliot Warren's Portfolio, hi mom!"/>
         <title>Elliot Warren's Portfolio</title>
     </head>
-    <body>
+    <body onclick="autoScrollHandler()">
+        <script src="sketch.js"></script>
         <div class="enterance">
             <img src="assets/images/landing.png" class="landing" id="landing"/>
         </div>
         <div class="enterance">
-            <h1 class="name" id="name">Elliot Warren</h1>
+            <h1 class="name first-name" id="firstName">Elliot</h1>
+            <h1 class="name last-name" id="lastName">Warren</h1>
+        </div>
+        <div class="button-wrapper" id="scrollButton" onclick="autoScrollHandler()">
+            <i class="button-text" onclick="autoScrollHandler()">Click anywhere<br>to continue<br>&#x2193;</i>
+            <div class="button-animation-wrapper point-effect" onclick="autoScrollHandler()">
+            </div>
         </div>
         <section class="design-section resume" id="resume">
             <h1 id="sectionTitle">Work History</h1>
@@ -29,6 +36,7 @@
                 </div>
                 <div class="timeline-component timeline-content">
                     <dl>
+                        <img src="assets/images/IWD.png" alt="Independant Website Contractor Logo" style="width: 50%; height: auto;">
                         <dt>Independent Website Contracting</dt>
                         <dt class="date">Feb 2025 - Present</dt>
                         <dd>Created the website <a target="_blank" href="https://fsrauto.com">FSRAuto</a> for client from ground up using wordpress.</dd>
@@ -37,6 +45,8 @@
                 </div>
                 <div class="timeline-component timeline-content">
                     <dl>
+                        <img src="https://paradyme.us/assets/images/Paradyme_Cathexis.svg" alt="Paradyme Logo">
+                        <img src="assets/images/c3-ai-logo.png" alt="C3.ai Logo" style="width: 50%; height: auto;">
                         <dt>Paradyme Management Inc. at C3.ai</dt>
                         <dt class="title">Junior AI/ML Software Developer</dt>
                         <dt class="date">Sep 2024 - Feb 2025</dt>
@@ -58,6 +68,7 @@
                 </div>
                 <div class=" timeline-component timeline-content">
                     <dl>
+                        <img src="assets/images/USAF_logo.png" alt="USAF Logo" style="width: 50%; height: auto">
                         <dt>United States Air Force</dt>
                         <dt class="title">Aerospace Propulsion Mechanic & Programs Manager - Secret Clearance</dt>
                         <dt class="date">Jan 2017 - Jan 2021</dt>

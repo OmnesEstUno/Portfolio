@@ -4,85 +4,90 @@
 // linkedIn: https://www.linkedin.com/in/elliot-warren/
 
 const IMAGE = document.getElementById('landing');
-const NAME_TITLE = document.getElementById('name');
+const FIRST_NAME_TITLE = document.getElementById('firstName');
+const LAST_NAME_TITLE = document.getElementById('lastName');
 const RESUME = document.getElementById('resume');
 const SECTION_TITLE = document.getElementById('sectionTitle');
+const BUTTON = document.getElementById('scrollButton');
+const BUTTON_ANIMATION_TIME = 1000; // Time for animation to take place in ms
 const INITIAL_ZOOM = 1; // Initial scale factor
 const ZOOM_SPEED = 0.005; // Amount to increase scale on each wheel event
-var newZoom = 0; // Value to set scale property to
+var backgroundZoom = 0; // Value to set scale property to
 const OPACITY_SPEED = 0.0005 // Amount to scale opacity on each wheel event
-var newOpacity = 0 // Value to set to opacity property to
+var backgroundOpacity = 0 // Value to set background opacity to
+var resumeOpacity = 0; // Variable to set resume opacity to
+var buttonOpacity = 0; // Variable to set button opacity to
+var backgroundBlur = 0; // Value to set Blur to while zooming
 var deltaY = 0; // Pixel distance "covered" per wheel event
+const DT_DELTA_Y_MAX = 0; // Desktop deltaY max
+const MB_DELTA_Y_MAX = 0; // Mobile deltaY max
 var initY = 0; // Start location for reference on mobile
-const TARGET_W = 15; // Additional width to grant the name space to be 1 ln
-const TARGET_X = document.body.scrollWidth * 0.24; // Desktop X translation target
-const TARGET_Y = 100; // Desktop Y translation target
+const FN_TARGET_X = 466; // Desktop X translation target
+const FN_TARGET_Y = 100; // Desktop Y translation target
+const LN_TARGET_X = 576; // Desktop X translation target
+const LN_TARGET_Y = 146; // Desktop Y translation target
+var transMtx = null;
+var isAtTop = true;
+var instDate = 0;
+var ftrDate = 0;
 
-if (IMAGE && NAME_TITLE && RESUME && SECTION_TITLE) {
-    ['wheel', 'touchstart', 'touchmove'].forEach(function(event) {
-        document.addEventListener(event, (event) => {
-            // Comparitor for the type of device used 
-            // extrapolated from the screen width.
-            // decides how to record the deltaY
-            if(newOpacity >= 0){
-                if (event.type === "wheel"){
-                    event.cancelable = false;
-                    deltaY += event.deltaY;
-                } else if (event.type === "touchstart") {
-                    initY = event.touches[0].pageY;
-                } else if (event.type === 'touchmove') {
-                    // Calculate delta for touch move
-                    deltaY += (initY - (event.touches[0]?.pageY || initY));
-                }
-            }
+function autoScrollHandler() {
+    console.log("button clicked")
+    let id = null;
+    instDate = Date.now();
+    ftrDate = instDate + BUTTON_ANIMATION_TIME;
+    clearInterval(id);
+    id = setInterval(autoScroll, 1);
+    function autoScroll() {
+        if ((instDate < ftrDate) && isAtTop) {
+            var percentComplete = 1 - (ftrDate - instDate) / BUTTON_ANIMATION_TIME;
+            backgroundZoom = 1 + percentComplete * 3;
+            backgroundOpacity = 1-percentComplete;
+            backgroundBlur = backgroundZoom;
+            resumeOpacity = percentComplete;
+            buttonOpacity = backgroundOpacity
+            transMtx = calcTranslate(backgroundOpacity);
+            setStyles();
+            instDate = Date.now();
+        } else {
+            clearInterval(id);
+            isAtTop = false;
+        }
+    }
+}
 
-            // Clamp deltaY between 0 and the size of the IMAGE
-            deltaY = Math.max(Math.min(deltaY, window.innerHeight * 4.5), 0);
-
-            // Sets manipulation factor values where 0 is floor
-            if (deltaY <= 0){ // Indicates negative overscrolling; clamp at "top"
-                newZoom = 1;
-                newOpacity = 1;
-            } else {
-                newZoom = INITIAL_ZOOM + deltaY * ZOOM_SPEED;
-                //TODO: add blur effect
-                newOpacity = INITIAL_ZOOM - deltaY * OPACITY_SPEED;
-                // Confine opacity between 0 and 1
-                newOpacity = Math.max(0, Math.min(1, newOpacity));
-            }
-
-            // Generate positional matrix to move title as deltaY changes
-            let transMtx = calcTranslate(newOpacity);
-
-            // Set styles based on deltaY
-            IMAGE.style.transform = `scale(${newZoom})`;
-            IMAGE.style.opacity = newOpacity;
-            IMAGE.style.filter = `blur(${newZoom - 1}px)`
-            RESUME.style.opacity = 1 - newOpacity;
-            if (event.type === "wheel") {
-                transMtx.length === 4 ? (NAME_TITLE.style.transform = `translate(${transMtx[1]}px, -${transMtx[2]}px)`, NAME_TITLE.style.width = `${transMtx[0]}rem`) :null;
-            }
-            if (newOpacity === 0) {
-                RESUME.style.position = "sticky";
-                RESUME.style.paddingTop = "16vh";
-            } else {
-                RESUME.style.position = "fixed"
-                RESUME.style.paddingTop = "0";
-            }
-
-            if(SECTION_TITLE.getBoundingClientRect().y <= 110) {
-                flyOutPrevTitle();
-            }
-        });
-    })
+function setStyles() {
+    console.log("setting styles...");
+    // Set styles based on deltaY or button press
+    IMAGE.style.transform = `scale(${backgroundZoom})`;
+    IMAGE.style.opacity = backgroundOpacity;
+    IMAGE.style.filter = `blur(${backgroundBlur}px)`
+    RESUME.style.opacity = resumeOpacity;
+    BUTTON.style.opacity = buttonOpacity;
+    if (transMtx.length === 5) {
+        FIRST_NAME_TITLE.style.transform = `translate(${transMtx[0]}px, -${transMtx[1]}px)`;
+        LAST_NAME_TITLE.style.transform = `translate(${transMtx[2]}px, -${transMtx[3]}px)`;
+    }
+    if (backgroundOpacity <= 0.005) {
+        RESUME.style.position = "sticky";
+        RESUME.style.paddingTop = "16vh";
+        RESUME.style.paddingBottom = "100vh";
+        BUTTON.style.display = "none";
+        BUTTON.style.removeProperty("cursor");
+    } else {
+        RESUME.style.position = "fixed"
+        RESUME.style.paddingTop = "0";
+        BUTTON.style.removeProperty("display");
+    }
 }
 
 function calcTranslate(opacity) {
     let percent = 1 - (opacity / 1);
-    let instW = percent * TARGET_W; // width to allow the title to occupy one line
-    let instX = percent * TARGET_X; // x position for the title
-    let instY = percent * TARGET_Y; // y position for the title
-    return [instW, instX, instY, percent];
+    let instXFN = percent * FN_TARGET_X; // x position for the title
+    let instYFN = percent * FN_TARGET_Y; // y position for the title
+    let instXLN = percent * LN_TARGET_X; // x position for the title
+    let instYLN = percent * LN_TARGET_Y; // y position for the title
+    return [instXFN, instYFN, instXLN, instYLN, percent];
 }
 
 function flyOutPrevTitle() {

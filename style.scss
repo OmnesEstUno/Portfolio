@@ -1,0 +1,345 @@
+@use 'sass:math';
+
+$total: 300; // total particles
+$orb-size: 30vw;
+$particle-size: 4px;
+$time: 14s; 
+$base-hue: 50; // change for diff colors (180 is nice)
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #02000c;
+}
+
+/* For Desktop viewing */
+@media (max-width : 1920px) and (min-width: 420px) {
+    .enterance {
+        position: sticky;
+        top: 10px;
+        z-index: -1;
+    }
+    .landing {
+        width: 100%;
+        right: 0.7rem;
+        height: auto;
+        will-change: transform;
+        position: fixed;
+    }
+
+    .name {
+        color: white;
+        position: fixed;
+        width: 4em;
+        left: 20%;
+        animation: fade-in ease-in 2s;
+    }
+
+    .first-name {
+        top: 20%;
+    }
+
+    .last-name {
+        top: 25%;
+    }
+
+    .button-wrapper {
+        color: white;
+        position: fixed;
+        left: 45.9vw;
+        top: 75.7vh;
+        z-index: 1;
+        animation: fade-in ease-in-out 4s;
+    }
+
+    .button-text {
+        pointer-events: none;
+        position: absolute;
+        width: auto;
+        left: 0.8vw;
+        top: 5vh;
+        font-family: "PT Sans", sans-serif;
+        font-weight: 500;
+        font-size: 1.2rem;
+        font-style: normal;
+        text-align: center;
+        transition: all 0.1s;
+        z-index: 1;
+        animation: fade-in ease-in-out 4s;
+    }
+
+
+    // show more button
+    .button-animation-wrapper {
+        cursor: pointer;
+        display: inline-block;
+        height: 150px;
+        width: 150px;
+
+        border-radius: 190px;
+        border: 3px solid #110164;
+        background: #02000c;
+        text-align: center;
+
+        text-decoration: none;
+        color: #ffffff;
+
+        transition: all 0.5s;
+    }
+}
+
+/* For Mobile viewing */
+@media (max-width : 412px) {
+    .enterance {
+        position: sticky;
+        top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: -1;
+    }
+
+    .landing {
+        height: 100vh;
+        width: auto;
+        will-change: transform;
+        position: fixed;
+        top: 0px;
+    }
+
+    .name {
+        color: white;
+        text-align: center;
+        position: fixed;
+        width: 5em;
+        left: 29%;
+        animation: fade-in ease-in 2s;
+    }
+
+    .first-name {
+        top: 3%;
+    }
+
+    .last-name {
+        top: 8%;
+    }
+
+    .button-wrapper {
+        color: white;
+        position: fixed;
+        left: 31vw;
+        top: 72vh;
+        z-index: 1;
+        animation: fade-in ease-in-out 4s;
+    }
+
+    .button-text {
+        pointer-events: none;
+        position: absolute;
+        width: auto;
+        left: 0.8vw;
+        top: 1.5vh;
+        font-family: "PT Sans", sans-serif;
+        font-weight: 500;
+        font-size: 1.5rem;
+        font-style: normal;
+        text-align: center;
+        transition: all 0.1s;
+        z-index: 1;
+        animation: fade-in ease-in-out 4s;
+    }
+
+
+    // show more button
+    .button-animation-wrapper {
+        cursor: pointer;
+        display: inline-block;
+        height: 150px;
+        width: 150px;
+
+        border-radius: 190px;
+        border: 3px solid #110164;
+        background: #02000c;
+        text-align: center;
+
+        text-decoration: none;
+        color: #ffffff;
+
+        transition: all 0.5s;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+dd {
+    display: list-item;
+}
+
+.date {
+    font-style: italic;
+}
+
+
+.resume {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 10% 10%;
+    overflow: scroll;
+    top: 9rem;
+    left: 5.1rem;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: white;
+    background-color: transparent;
+    opacity: 0;
+}
+
+.design {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline {
+    width: 80%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: #1f1f1f;
+    -webkit-box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
+            box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
+    border-radius: 5px;
+    color: white;
+    padding: 1.75rem;
+    transition: 0.4s ease;
+    overflow-wrap: break-word !important;
+    margin: 1rem;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.timeline-component {
+    margin: 0px 20px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .timeline {
+        display: grid;
+        grid-template-columns: 1fr 3px 1fr;
+    }
+    .timeline-middle {
+        position: relative;
+        background-image: linear-gradient(45deg, #59067a, #06187a, #59067a);
+        width: 3px;
+        height: 100%;
+    }
+    .main-middle {
+        opacity: 0;
+    }
+    .timeline-circle {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-image: linear-gradient(45deg, #59067a, #59067a, #59067a);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+    }
+}
+
+.fly-out {
+    transition: 0.5s;
+}
+
+.orb {
+    position: relative;
+    top: 58vh;
+    left: 50vw;
+    width: 0; 
+    height: 0; 
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: rotate $time infinite linear; // rotate orb
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotateY(360deg) rotateX(360deg);
+    }
+}
+
+.partical {
+    position: absolute;
+    width: $particle-size;
+    height: $particle-size;
+    border-radius: 50%;
+    opacity: 0; 
+}
+
+@for $i from 1 through $total {
+    $z: calc(math.random() * 360 * 1deg); // random angle to rotateZ
+    $y: calc(math.random() * 360 * 1deg); // random to rotateX
+    $hue: calc(calc(40/$total * $i) + $base-hue); // set hue
+    
+    .partical:nth-child(#{$i}){ // grab the nth particle
+        animation: orbit#{$i} $time infinite;
+        animation-delay: calc($i * .01s); 
+        background-color: hsla($hue, 50%, 50%, 0.5);
+    }
+
+    @keyframes orbit#{$i}{ 
+        20% {
+            opacity: 1; // fade in
+        }
+        30% {
+            transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z); // form orb
+        }
+        80% {
+            transform: rotateZ(-$z) rotateY($y) translateX($orb-size) rotateZ($z); // hold orb state 30-80
+            opacity: 1; // hold opacity 20-80
+        }
+        100% {
+            transform: rotateZ(-$z) rotateY($y) translateX( ($orb-size * 3) ) rotateZ($z); // translateX * 3
+        }
+    }
+}
+
+.point-effect {
+    transform: rotateZ(135deg);
+
+    &:hover {
+        border-top-right-radius: 0;
+    }
+
+    :active {
+        box-shadow: -90px 90px 0 #02000c inset;
+    }
+
+    i {
+        transform: rotateZ(45deg);
+        display: inline-block;
+    }
+}
