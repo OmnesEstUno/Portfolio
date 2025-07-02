@@ -1,4 +1,4 @@
-cap image opacity at 75%
+DONE cap image opacity at 75%
 
 Make frosted header banner
     name center
@@ -25,7 +25,7 @@ Projects (work in progress - do last)
     picture on left (33vw), desc on right
         picture clickable to dedicated page
 
-Education
+DONE Education
     only SFSU
     image of school
     degree, grad date underneath

@@ -13,13 +13,24 @@
         <title>Elliot Warren's Portfolio</title>
     </head>
     <body onclick="autoScrollHandler()">
-        <script src="sketch.js"></script>
         <div class="enterance">
             <img src="assets/images/landing.png" class="landing" id="landing"/>
         </div>
-        <div class="enterance">
+        <div class="header-container" style="display: flex; justify-content: center;">
+            <div class="header" id="header"></div>
+        </div>
+        <div class="banner-content">
+            <div class="email-me link" id="email-me">
+                <a href="mailto:elliotjwarren@gmail.com">Email<br>Me</a>
+            </div>
+            <div class="print-resume link" id="print-resume">
+                <a onclick="printResume()">Print my resume!</a>
+            </div>
             <h1 class="name first-name" id="firstName">Elliot</h1>
             <h1 class="name last-name" id="lastName">Warren</h1>
+            <div class="about-me link" id="about-me">
+                <a href="about_me.html">About<br>Me</a>
+            </div>
         </div>
         <div class="button-wrapper" id="scrollButton" onclick="autoScrollHandler()">
             <i class="button-text" onclick="autoScrollHandler()">Click anywhere<br>to continue<br>&#x2193;</i>
@@ -92,22 +103,35 @@
             </div>
             <h1>Education</h1>
             <div class="education">
-                <h1>Education</h1>
-                <h3>San Francisco State University</h3>
-                <h4>Bachelor of Science in Computer Science</h4>
-                <h6>Aug 2022 - May 2024</h6>
-                <br>
-                <h3>Community College of San Mateo</h3>
-                <h6>Jan 2021 - Aug 2022</h6>
-                <br>
-                <h3>Arizona State University</h3>
-                <h6>Jan 2019 - Oct 2020</h6>
+                <img src="assets/images/sfsu_gator.png">
+                <div>
+                    <h3>San Francisco State University</h3>
+                    <h4>Bachelor of Science in Computer Science</h4>
+                    <h6>Aug 2022 - May 2024</h6>
+                </div>
             </div>
             <div class="skills">
-                <h1>Skills</h1>
-                <ul>
-                    <li></li>
-                </ul>
+                <h1>Technologies Elliot is familliar with using</h1>
+                <div class="skill-grid">
+                    <a class="skill-link" href="https://www.php.net/download-logos.php">
+                        <img class="skill-img" src="assets/images/PHP.svg" alt="PHP logo" title="PHP">
+                    </a>
+                    <a class="skill-link" href="https://github.com/microsoft/TypeScript-Website/blob/v2/LICENSE">
+                        <img class="skill-img" src="assets/images/TypeScript.svg" alt="TypeScript logo" title="TypeScript">
+                    </a>
+                    <a class="skill-link" href="https://isocpp.org/home/terms-of-use">
+                        <img class="skill-img" src="assets/images/CPlusPlus.svg" alt="C Plus Plus logo" title="C++">
+                    </a>
+                    <a class="skill-link" href="https://www.oracle.com/a/ocom/docs/java-licensing-logo-guidelines-1908204.pdf">
+                        <img class="skill-img" src="assets/images/Java.svg" alt="Java logo" title="Java">
+                    </a>
+                    <a class="skill-link" href="https://github.com/python/pythonineducation.org/blob/master/LICENSE">
+                        <img class="skill-img" src="assets/images/Python.svg" alt="Python logo" title="Python">
+                    </a>
+                    <a class="skill-link" href="https://github.com/voodootikigod/logo.js/blob/master/LICENSE">
+                        <img class="skill-img" src="assets/images/JS.svg" alt="JS logo" title="JS">
+                    </a>
+                </div>
             </div>
         </section>
         <script src="animations.js"></script> 
