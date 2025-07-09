@@ -52,28 +52,30 @@ FIRST_NAME_TITLE.addEventListener("animationend", function() {
  * namely applying the setInterval loop
  */
 function autoScrollHandler() {
-    removeOnClick();
-    let id = null;
-    instDate = Date.now();
-    ftrDate = instDate + BUTTON_ANIMATION_TIME;
-    clearInterval(id);
-    id = setInterval(autoScroll, 1);
-    function autoScroll() {
-        if ((instDate < ftrDate) && isAtTop) {
-            var percentComplete = 1 - (ftrDate - instDate) / BUTTON_ANIMATION_TIME;
-            backgroundZoom = 1 + percentComplete * 3;
-            backgroundOpacity = Math.max(MIN_OPACITY, 1-percentComplete);
-            headerOpacity = percentComplete;
-            linkOpacity = percentComplete;
-            backgroundBlur = percentComplete * 3;
-            resumeOpacity = percentComplete;
-            buttonOpacity = 1-percentComplete
-            transMtx = calcTranslate(1-percentComplete);
-            setStyles();
-            instDate = Date.now();
-        } else {
-            clearInterval(id);
-            isAtTop = false;
+    if (HEADER && IMAGE && EMAIL_LINK && PRINT_LINK && ABOUT_LINK && RESUME && BUTTON && FIRST_NAME_TITLE && LAST_NAME_TITLE) {
+        removeOnClick();
+        let id = null;
+        instDate = Date.now();
+        ftrDate = instDate + BUTTON_ANIMATION_TIME;
+        clearInterval(id);
+        id = setInterval(autoScroll, 1);
+        function autoScroll() {
+            if ((instDate < ftrDate) && isAtTop) {
+                var percentComplete = 1 - (ftrDate - instDate) / BUTTON_ANIMATION_TIME;
+                backgroundZoom = 1 + percentComplete * 3;
+                backgroundOpacity = Math.max(MIN_OPACITY, 1-percentComplete);
+                headerOpacity = percentComplete;
+                linkOpacity = percentComplete;
+                backgroundBlur = percentComplete * 3;
+                resumeOpacity = percentComplete;
+                buttonOpacity = 1-percentComplete
+                transMtx = calcTranslate(1-percentComplete);
+                setStyles();
+                instDate = Date.now();
+            } else {
+                clearInterval(id);
+                isAtTop = false;
+            }
         }
     }
 }
