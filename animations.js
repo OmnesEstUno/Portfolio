@@ -137,6 +137,8 @@ function printResume() {
  * removes the onClick handlers from the elements to prevent rapid clicking
  */
 function removeOnClick() {
-    BODY.removeAttribute("onClick");
-    BUTTON.removeAttribute("onClick");
+    if (BODY && BUTTON) {
+        BODY.removeAttribute("onClick");
+        BUTTON.removeAttribute("onClick");
+    }
 }
