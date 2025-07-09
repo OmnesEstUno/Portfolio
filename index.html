@@ -12,7 +12,7 @@
         <meta name="description" content="Elliot Warren's Portfolio, hi mom!"/>
         <title>Elliot Warren's Portfolio</title>
     </head>
-    <body onclick="autoScrollHandler()">
+    <body id="body" onclick="autoScrollHandler()">
         <div class="enterance">
             <img src="assets/images/landing.png" class="landing" id="landing"/>
         </div>
@@ -21,119 +21,151 @@
         </div>
         <div class="banner-content">
             <div class="email-me link" id="email-me">
-                <a href="mailto:elliotjwarren@gmail.com">Email<br>Me</a>
+                <a href="mailto:elliotjwarren@gmail.com">Email<br>📧<br>Me</a>
             </div>
             <div class="print-resume link" id="print-resume">
-                <a onclick="printResume()">Print my resume!</a>
+                <a class="print-resume-icon" onclick="printResume()">Print 🖨️ Me &nbsp;</a>
             </div>
-            <h1 class="name first-name" id="firstName">Elliot</h1>
-            <h1 class="name last-name" id="lastName">Warren</h1>
+            <h1 class="name first-name" id="first-name">Elliot</h1>
+            <h1 class="name last-name" id="last-name">Warren</h1>
             <div class="about-me link" id="about-me">
-                <a href="about_me.html">About<br>Me</a>
+                <a href="about_me.html">About<br>👤<br>Me</a>
             </div>
         </div>
-        <div class="button-wrapper" id="scrollButton" onclick="autoScrollHandler()">
-            <i class="button-text" onclick="autoScrollHandler()">Click anywhere<br>to continue<br>&#x2193;</i>
-            <div class="button-animation-wrapper point-effect" onclick="autoScrollHandler()">
+        <div class="button-wrapper" id="scroll-button" onclick="autoScrollHandler()">
+            <i class="button-text" id="button-text">Click anywhere<br>to continue<br>&#x2193;</i>
+            <div class="button-animation-wrapper point-effect" id="point-effect">
             </div>
         </div>
-        <section class="design-section resume" id="resume">
-            <h1 id="sectionTitle">Work History</h1>
-            <div class="timeline">
-                <div class="timeline-empty">
+        <div class="resume-box">
+            <section class="resume" id="resume">
+                <h1 id="sectionTitle">Work History</h1>
+                <div class="design-section">
+                    <div class="timeline">
+                        <div class="timeline-empty">
+                        </div>
+                        <div class="timeline-middle">
+                            <div class="timeline-circle tc-right"></div>
+                        </div>
+                        <div class="timeline-component timeline-content">
+                            <dl>
+                                <img src="assets/images/IWD.png" alt="Independant Website Contractor Logo" style="width: 50%; height: auto;">
+                                <dt>Independent Website Contracting</dt>
+                                <dt class="date">Feb 2025 - Present</dt>
+                                <dd>Created the website <a target="_blank" href="https://fsrauto.com">FSRAuto</a> for client from ground up using wordpress.</dd>
+                                <dd>Oversee SEO, Google Ads, and website security.</dd>
+                            </dl>
+                        </div>
+                        <div class="timeline-component timeline-content">
+                            <dl>
+                                <img src="https://paradyme.us/assets/images/Paradyme_Cathexis.svg" alt="Paradyme Logo">
+                                <img src="assets/images/c3-ai-logo.png" alt="C3.ai Logo" style="width: 50%; height: auto;">
+                                <dt>Paradyme Management Inc. at C3.ai</dt>
+                                <dt class="title">Junior AI/ML Software Developer</dt>
+                                <dt class="date">Sep 2024 - Feb 2025</dt>
+                                <dd>Contributed to the Architecture and building of full-stack features for U.S. Marine Corps staffing application utilizing TypeScript and C3 Type System, focusing on scalability and speed.</dd>
+                                <dd>Developed dynamic React-based front-end features, enhancing user experience and application performance.</dd>
+                                <dd>Contributed to increasing testing coverage by 150% across multiple federal contract codebases using CI/CD pipelines and Jasmine, improving code reliability.</dd>
+                                <dd>Utilized Jira for project management and issue tracking to streamline coordination and delivery of milestones.</dd>
+                            </dl>
+                        </div>
+                        <div class="timeline-middle">
+                            <div class="timeline-circle tc-left"></div>
+                        </div>
+                        <div class="timeline-empty">
+                        </div>
+                        <div class="timeline-empty">
+                        </div>
+                        <div class="timeline-middle">
+                            <div class="timeline-circle tc-right"></div>
+                        </div>
+                        <div class=" timeline-component timeline-content">
+                            <dl>
+                                <img src="assets/images/USAF_logo.png" alt="USAF Logo" style="width: 50%; height: auto">
+                                <dt>United States Air Force</dt>
+                                <dt class="title">Aerospace Propulsion Mechanic & Programs Manager - Secret Clearance</dt>
+                                <dt class="date">Jan 2017 - Jan 2021</dt>
+                                <dd>Managed, coordinated, and scheduled mission essential training deployment for over 150 individuals</dd>
+                                <dd>Ensured regulatory compliance for production warehouses, adhering to OSHA and Air Force Instruction (AFI) safety and security protocols.</dd>
+                                <dd>Managed finances and inventory for an in-warehouse nutrition stop, contributing to its growth and operational efficiency.</dd>
+                            </dl>
+                        </div>
+                        <div class=" timeline-empty"></div>
+                        <div class="timeline-middle">
+                            <div class="timeline-circle tc-beginning"></div>
+                        </div>
                 </div>
-                <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
                 </div>
-                <div class="timeline-component timeline-content">
-                    <dl>
-                        <img src="assets/images/IWD.png" alt="Independant Website Contractor Logo" style="width: 50%; height: auto;">
-                        <dt>Independent Website Contracting</dt>
-                        <dt class="date">Feb 2025 - Present</dt>
-                        <dd>Created the website <a target="_blank" href="https://fsrauto.com">FSRAuto</a> for client from ground up using wordpress.</dd>
-                        <dd>Oversee SEO, Google Ads, and website security.</dd>
-                    </dl>
+                <div class="section-break"></div>
+                <h1>Projects</h1>
+                <div class="projects">
+                    <div class="project aquamate">
+                        <img class="project-logo" src="assets/images/AquaMate_logo_square.png" alt="Aquamate logo">
+                        <div class="project-text">
+                            <p>&#x2022; Team leader for a group of seven
+                                <br><br>&#x2022; complete lifecycle development of an aquarium building website; from concept development, to simulated mvp.
+                                <br><br>&#x2022; Delegated and managed tasks to team members, coordinated project plan schedule and meetings, and contributed code.</p>
+                        </div>
+                    </div>
+                    <div class="project robotic-car">
+                        <video class="project-logo" muted>
+                            <source src="assets/videos/robotic-car.mp4" type="video/mp4">
+                        </video>
+                        <div class="project-text">
+                            <p>&#x2022; Established project schedule, orchestrated work load division between five team members, and coordinated progress meetings.
+                                <br><br>&#x2022; Integrated various components including omnidirectional wheels, IR line sensors, IR obstacle detectors, and ultrasonic sensors, employing libraries from pigpio and PCA9685.
+                                <br><br>&#x2022; Assembled, troubleshooted, and demonstrated the final functioning self navigating car.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="timeline-component timeline-content">
-                    <dl>
-                        <img src="https://paradyme.us/assets/images/Paradyme_Cathexis.svg" alt="Paradyme Logo">
-                        <img src="assets/images/c3-ai-logo.png" alt="C3.ai Logo" style="width: 50%; height: auto;">
-                        <dt>Paradyme Management Inc. at C3.ai</dt>
-                        <dt class="title">Junior AI/ML Software Developer</dt>
-                        <dt class="date">Sep 2024 - Feb 2025</dt>
-                        <dd>Contributed to the Architecture and building of full-stack features for U.S. Marine Corps staffing application utilizing TypeScript and C3 Type System, focusing on scalability and speed.</dd>
-                        <dd>Developed dynamic React-based front-end features, enhancing user experience and application performance.</dd>
-                        <dd>Contributed to increasing testing coverage by 150% across multiple federal contract codebases using CI/CD pipelines and Jasmine, improving code reliability.</dd>
-                        <dd>Utilized Jira for project management and issue tracking to streamline coordination and delivery of milestones.</dd>
-                    </dl>
+                <div class="section-break"></div>
+                <h1>Education</h1>
+                <div class="education">
+                    <img src="assets/images/sfsu_gator.png">
+                    <div>
+                        <h3>San Francisco State University</h3>
+                        <h4>Bachelor of Science in Computer Science</h4>
+                        <h6>Aug 2022 - May 2024</h6>
+                    </div>
                 </div>
-                <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
+                <div class="section-break"></div>
+                <h1>Proficiencies</h1>
+                <div class="skills">
+                    <div class="skill-grid">
+                        <a class="skill-link" href="https://www.php.net/download-logos.php">
+                            <img class="skill-img" src="assets/images/PHP.svg" alt="PHP logo" title="PHP">
+                        </a>
+                        <a class="skill-link" href="https://www.open-std.org/jtc1/sc22/wg14/www/docs/n2310.pdf">
+                            <img class="skill-img" src="assets/images/C.png" alt="C logo" title="C">
+                        </a>
+                        <a class="skill-link" href="https://isocpp.org/home/terms-of-use">
+                            <img class="skill-img" src="assets/images/CPlusPlus.svg" alt="C Plus Plus logo" title="C++">
+                        </a>
+                        <a class="skill-link" href="https://github.com/facebook/react/releases">
+                            <img class="skill-img" src="assets/images/react.svg" alt="React JS logo" title="React">
+                        </a>
+                        <a class="skill-link" href="https://github.com/microsoft/TypeScript-Website/blob/v2/LICENSE">
+                            <img class="skill-img" src="assets/images/TypeScript.svg" alt="TypeScript logo" title="TypeScript">
+                        </a>
+                        <a class="skill-link" href="https://www.oracle.com/a/ocom/docs/java-licensing-logo-guidelines-1908204.pdf">
+                            <img class="skill-img" src="assets/images/Java.svg" alt="Java logo" title="Java">
+                        </a>
+                        <a class="skill-link" href="https://github.com/python/pythonineducation.org/blob/master/LICENSE">
+                            <img class="skill-img" src="assets/images/Python.svg" alt="Python logo" title="Python">
+                        </a>
+                        <a class="skill-link" href="https://github.com/voodootikigod/logo.js/blob/master/LICENSE">
+                            <img class="skill-img" src="assets/images/JS.svg" alt="JS logo" title="JS">
+                        </a>
+                        <a class="skill-link" href="https://github.com/nodejs/node/blob/main/LICENSE">
+                            <img class="skill-img" src="assets/images/nodejs.svg" alt="Node JS logo" title="Node">
+                        </a>
+                        <a class="skill-link" href="https://github.com/nginx/nginx/blob/master/LICENSE">
+                            <img class="skill-img" src="assets/images/nginx.png" alt="NGINX logo" title="NGINX">
+                        </a>
+                    </div>
                 </div>
-                <div class="timeline-empty">
-                </div>
-                <div class="timeline-empty">
-                </div>
-                <div class="timeline-middle">
-                    <div class="timeline-circle"></div>
-                </div>
-                <div class=" timeline-component timeline-content">
-                    <dl>
-                        <img src="assets/images/USAF_logo.png" alt="USAF Logo" style="width: 50%; height: auto">
-                        <dt>United States Air Force</dt>
-                        <dt class="title">Aerospace Propulsion Mechanic & Programs Manager - Secret Clearance</dt>
-                        <dt class="date">Jan 2017 - Jan 2021</dt>
-                        <dd>Managed, coordinated, and scheduled mission essential training deployment for over 150 individuals</dd>
-                        <dd>Ensured regulatory compliance for production warehouses, adhering to OSHA and Air Force Instruction (AFI) safety and security protocols.</dd>
-                        <dd>Managed finances and inventory for an in-warehouse nutrition stop, contributing to its growth and operational efficiency.</dd>
-                    </dl>
-                </div>
-            </div>
-            <h1>Projects</h1>
-            <div class="projects">
-                <dl>
-                    <dt>AquaMate</dt>
-                    <dd>Team leader for a group of seven, in the complete lifecycle development of an aquarium building website; from concept development, to presentation of the final product.</dd>
-                    <dd>Delegated and managed tasks to team members, coordinated project plan schedule and meetings, and assisted team members in software development in addition to individual code assignments.</dd>
-                    <dt>Robotic Line Following Car</dt>
-                    <dd>Established project schedule, orchestrated work load division between five team members, and coordinated progress meetings.</dd>
-                    <dd>Integrated various components including omnidirectional wheels, IR line sensors, IR obstacle detectors, and ultrasonic sensors, employing libraries from pigpio and PCA9685.</dd>
-                    <dd>Assembled, troubleshooted, and demonstrated the final functioning self navigating car.</dd>
-                </dl>
-            </div>
-            <h1>Education</h1>
-            <div class="education">
-                <img src="assets/images/sfsu_gator.png">
-                <div>
-                    <h3>San Francisco State University</h3>
-                    <h4>Bachelor of Science in Computer Science</h4>
-                    <h6>Aug 2022 - May 2024</h6>
-                </div>
-            </div>
-            <div class="skills">
-                <h1>Technologies Elliot is familliar with using</h1>
-                <div class="skill-grid">
-                    <a class="skill-link" href="https://www.php.net/download-logos.php">
-                        <img class="skill-img" src="assets/images/PHP.svg" alt="PHP logo" title="PHP">
-                    </a>
-                    <a class="skill-link" href="https://github.com/microsoft/TypeScript-Website/blob/v2/LICENSE">
-                        <img class="skill-img" src="assets/images/TypeScript.svg" alt="TypeScript logo" title="TypeScript">
-                    </a>
-                    <a class="skill-link" href="https://isocpp.org/home/terms-of-use">
-                        <img class="skill-img" src="assets/images/CPlusPlus.svg" alt="C Plus Plus logo" title="C++">
-                    </a>
-                    <a class="skill-link" href="https://www.oracle.com/a/ocom/docs/java-licensing-logo-guidelines-1908204.pdf">
-                        <img class="skill-img" src="assets/images/Java.svg" alt="Java logo" title="Java">
-                    </a>
-                    <a class="skill-link" href="https://github.com/python/pythonineducation.org/blob/master/LICENSE">
-                        <img class="skill-img" src="assets/images/Python.svg" alt="Python logo" title="Python">
-                    </a>
-                    <a class="skill-link" href="https://github.com/voodootikigod/logo.js/blob/master/LICENSE">
-                        <img class="skill-img" src="assets/images/JS.svg" alt="JS logo" title="JS">
-                    </a>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
         <script src="animations.js"></script> 
     </body>
 </html>

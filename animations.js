@@ -3,16 +3,18 @@
 // Author: Elliot Warren
 // linkedIn: https://www.linkedin.com/in/elliot-warren/
 
+// **********Variable and constant section***********
+const BODY = document.getElementById('body');
 const IMAGE = document.getElementById('landing');
 const HEADER = document.getElementById('header');
 const EMAIL_LINK = document.getElementById('email-me');
 const PRINT_LINK = document.getElementById('print-resume')
 const ABOUT_LINK = document.getElementById('about-me');
-const FIRST_NAME_TITLE = document.getElementById('firstName');
-const LAST_NAME_TITLE = document.getElementById('lastName');
+const FIRST_NAME_TITLE = document.getElementById('first-name');
+const LAST_NAME_TITLE = document.getElementById('last-name');
 const RESUME = document.getElementById('resume');
-const SECTION_TITLE = document.getElementById('sectionTitle');
-const BUTTON = document.getElementById('scrollButton');
+const BUTTON = document.getElementById('scroll-button');
+const BUTTON_EFFECT = document.getElementById('point-effect');
 const BUTTON_ANIMATION_TIME = 1000; // Time for animation to take place in ms
 var headerOpacity = 0; // tracker for header opacity on animation
 const INITIAL_ZOOM = 1; // Initial scale factor
@@ -38,7 +40,19 @@ var isAtTop = true;
 var instDate = 0;
 var ftrDate = 0;
 
+// JS I want to be executed when the page loads
+FIRST_NAME_TITLE.addEventListener("animationend", function() {
+    BUTTON_EFFECT.classList.add("infinite-point-effect");
+});
+
+// *************Function section******************
+
+/**
+ * Handles when the screen is initially clicked,
+ * namely applying the setInterval loop
+ */
 function autoScrollHandler() {
+    removeOnClick();
     let id = null;
     instDate = Date.now();
     ftrDate = instDate + BUTTON_ANIMATION_TIME;
@@ -64,14 +78,19 @@ function autoScrollHandler() {
     }
 }
 
+/**
+ * A handler function for setting styles to facilitate 
+ * the animation that takes place when initially clicking 
+ * the screen
+ */
 function setStyles() {
     HEADER.style.opacity = headerOpacity;
     IMAGE.style.transform = `scale(${backgroundZoom})`;
     IMAGE.style.opacity = backgroundOpacity;
     IMAGE.style.filter = `blur(${backgroundBlur}px)`
-    EMAIL_LINK.style.display = "block";
-    PRINT_LINK.style.display = "block";
-    ABOUT_LINK.style.display = "block";
+    EMAIL_LINK.style.display = "flex";
+    PRINT_LINK.style.display = "flex";
+    ABOUT_LINK.style.display = "flex";
     EMAIL_LINK.style.opacity = linkOpacity;
     PRINT_LINK.style.opacity = linkOpacity;
     ABOUT_LINK.style.opacity = linkOpacity;
@@ -83,13 +102,18 @@ function setStyles() {
     }
     if (backgroundOpacity <= MIN_OPACITY) {
         RESUME.style.position = "sticky";
-        RESUME.style.paddingTop = "16vh";
         RESUME.style.paddingBottom = "100vh";
         BUTTON.style.display = "none";
         BUTTON.style.removeProperty("cursor");
+        BUTTON.style.animation = "pointer-animation"
     }
 }
 
+/**
+ * Calculates the positions of my names to move across the screen smoothly
+ * @param {*} opacity <- a 0-1 slider to measure the movements off of
+ * @returns n=5 matrix containing transformation coordinates
+ */
 function calcTranslate(opacity) {
     let percent = 1 - (opacity / 1);
     let instXFN = percent * FN_TARGET_X; // x position for the title
@@ -99,12 +123,18 @@ function calcTranslate(opacity) {
     return [instXFN, instYFN, instXLN, instYLN, percent];
 }
 
-function flyOutPrevTitle() {
-    SECTION_TITLE.classList.add("fly-out");
-    return null;
+/**
+ * Prints my resume when the button is clicked
+ */
+function printResume() {
+    var resume = window.open("assets/Elliot_Warren_Resume.pdf");
+    resume?.print();
 }
 
-function printResume() {
-    resume = window.open("assets/Elliot_Warren_Resume.pdf");
-    resume?.print();
+/**
+ * removes the onClick handlers from the elements to prevent rapid clicking
+ */
+function removeOnClick() {
+    BODY.removeAttribute("onClick");
+    BUTTON.removeAttribute("onClick");
 }

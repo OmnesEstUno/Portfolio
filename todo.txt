@@ -30,7 +30,7 @@ DONE Education
     image of school
     degree, grad date underneath
 
-skills
+DONE skills
     grid of icons for each skill
 
 About Me page
