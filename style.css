@@ -24,13 +24,56 @@ dd {
   justify-content: center;
 }
 
+.about-me-body {
+  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 25% 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  justify-items: center;
+  align-items: center;
+  grid-template-areas: "self self" "tinker tinker" "aquarium pets";
+}
+
+.self {
+  grid-area: self;
+  font-size: 3em;
+  display: flex;
+  align-items: center;
+}
+
+.self-photo {
+  cursor: pointer;
+}
+
+.tinker {
+  grid-area: tinker;
+}
+
+.aquarium {
+  grid-area: aquarium;
+}
+
+.pets {
+  grid-area: pets;
+}
+
 .link {
+  cursor: pointer;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  width: 25px;
+  width: 50px;
   height: 25px;
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+.back-button {
+  position: absolute;
+  top: 28px;
+  left: 52%;
+  font-size: 0.7rem;
 }
 
 /* For Desktop viewing */
