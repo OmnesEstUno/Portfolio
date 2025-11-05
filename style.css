@@ -19,16 +19,6 @@ dd {
   display: list-item;
 }
 
-.construction-label {
-  position: absolute;
-  left: 55px;
-  font-size: 0.6rem;
-  color: red;
-  background-color: yellow;
-  border-radius: 50% 3px 3px 50%;
-  padding: 2px 2px 2px 10px;
-}
-
 .resume-box {
   display: flex;
   justify-content: center;
@@ -38,12 +28,30 @@ dd {
   color: white;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 25% 1fr 1fr;
+  grid-template-rows: 25% 1fr 1fr 1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   justify-items: center;
   align-items: center;
-  grid-template-areas: "self self" "tinker tinker" "aquarium pets";
+  grid-template-areas: "self self" "tinker_text tinker" "aquarium aquarium_text" "pets_text pets";
+}
+
+.about-section {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  width: 110%;
+  height: 100%;
+  padding: 2rem;
+}
+
+.about_me_text {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: center;
 }
 
 .self {
@@ -61,22 +69,36 @@ dd {
   grid-area: tinker;
 }
 
+.tinker_text {
+  grid-area: tinker_text;
+}
+
 .aquarium {
   grid-area: aquarium;
+}
+
+.aquarium_text {
+  grid-area: aquarium_text;
+  width: 40%;
 }
 
 .pets {
   grid-area: pets;
 }
 
+.pets_text {
+  grid-area: pets_text;
+  width: 40%;
+}
+
 .link {
   cursor: pointer;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 50px;
   width: 50px;
   height: 25px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .back-button {
@@ -84,6 +106,7 @@ dd {
   top: 28px;
   left: 52%;
   font-size: 0.7rem;
+  animation: fade-in ease-in-out 10s;
 }
 
 /* For Desktop viewing */
@@ -249,6 +272,13 @@ dd {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     margin: 5rem;
+  }
+  .about-image {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    border-radius: 10px;
+    margin: 10px;
   }
 }
 /* For Mobile viewing */
