@@ -73,7 +73,7 @@ dd {
 }
 
 .tinker { grid-area: tinker; }
-.tinker_text { grid-area: tinker_text; }
+.tinker_text { grid-area: tinker_text; width: 60%;}
 .aquarium { grid-area: aquarium; }
 .aquarium_text { grid-area: aquarium_text; width: 40%;}
 .pets { grid-area: pets; }
