@@ -72,6 +72,7 @@ dd {
 
 .tinker_text {
   grid-area: tinker_text;
+  width: 60%;
 }
 
 .aquarium {
