@@ -120,7 +120,7 @@ dd {
     top: 10px;
   }
   .banner-content {
-    position: fixed;
+    position: relative;
     display: flex;
     justify-content: center;
     top: 10px;
@@ -132,7 +132,7 @@ dd {
   .header {
     background-color: rgba(255, 255, 255, 0.2);
     opacity: 0;
-    height: 10%;
+    height: 6em;
     width: 42%;
     overscroll-behavior: none;
     position: fixed;
@@ -172,7 +172,6 @@ dd {
   .print-resume {
     position: fixed;
     display: none;
-    left: 49.5%;
     top: 1rem;
     text-align: center;
     white-space: nowrap;
@@ -185,26 +184,39 @@ dd {
     text-align: center;
   }
   .landing {
-    width: 100%;
+    height: 100%;
+    top: 0;
     right: 0.7rem;
-    height: auto;
     will-change: transform;
     position: fixed;
-    bottom: -82px;
+    background-attachment: fixed;
   }
-  .name {
+  .name-animated {
     color: white;
     position: fixed;
     width: 4em;
     left: 20%;
     animation: fade-in ease-in 2s;
   }
-  .first-name {
+  .first-name-animated {
     top: 20%;
   }
-  .last-name {
+  .last-name-animated {
     top: 25%;
   }
+
+  .name-fixed {
+    color: white;
+    position: fixed;
+    width: max-content;
+    left: 53.5rem;
+    top: 2rem;
+  }
+  .names-fixed {
+    top: 20%;
+    opacity: 0;
+  }
+
   .button-wrapper {
     color: white;
     position: fixed;
@@ -445,7 +457,8 @@ dd {
 @media screen and (min-width: 768px) {
   .timeline {
     display: grid;
-    grid-template-columns: 1fr 3px 1fr;
+    grid-template-columns: 1fr 0px 1fr;
+    justify-content: center;
   }
   .timeline-middle {
     position: relative;

@@ -10,8 +10,9 @@ const HEADER = document.getElementById('header');
 const EMAIL_LINK = document.getElementById('email-me');
 const PRINT_LINK = document.getElementById('print-resume')
 const ABOUT_LINK = document.getElementById('about-me');
-const FIRST_NAME_TITLE = document.getElementById('first-name');
-const LAST_NAME_TITLE = document.getElementById('last-name');
+const FULL_NAME_TITLE = document.getElementById("names-fixed");
+const FIRST_NAME_TITLE = document.getElementById('first-name-animated');
+const LAST_NAME_TITLE = document.getElementById('last-name-animated');
 const RESUME = document.getElementById('resume');
 const BUTTON = document.getElementById('scroll-button');
 const BUTTON_EFFECT = document.getElementById('point-effect');
@@ -31,10 +32,10 @@ var deltaY = 0; // Pixel distance "covered" per wheel event
 const DT_DELTA_Y_MAX = 0; // Desktop deltaY max
 const MB_DELTA_Y_MAX = 0; // Mobile deltaY max
 var initY = 0; // Start location for reference on mobile
-const FN_TARGET_X = 466; // Desktop X translation target
-const FN_TARGET_Y = 160; // Desktop Y translation target
-const LN_TARGET_X = 576; // Desktop X translation target
-const LN_TARGET_Y = 206; // Desktop Y translation target
+const FN_TARGET_X = 24.5; // Desktop X translation target
+const FN_TARGET_Y = 17; // Desktop Y translation target
+const LN_TARGET_X = 30; // Desktop X translation target
+const LN_TARGET_Y = 22; // Desktop Y translation target
 var transMtx = null;
 var isAtTop = true;
 var instDate = 0;
@@ -58,7 +59,7 @@ function autoScrollHandler() {
         instDate = Date.now();
         ftrDate = instDate + BUTTON_ANIMATION_TIME;
         clearInterval(id);
-        id = setInterval(autoScroll, 1);
+        id = setInterval(autoScroll, 1); // execute autoScroll() every 1 mili
         function autoScroll() {
             if ((instDate < ftrDate) && isAtTop) {
                 var percentComplete = 1 - (ftrDate - instDate) / BUTTON_ANIMATION_TIME;
@@ -75,6 +76,9 @@ function autoScrollHandler() {
             } else {
                 clearInterval(id);
                 isAtTop = false;
+                FIRST_NAME_TITLE.style.display = "none";
+                LAST_NAME_TITLE.style.display = "none";
+                FULL_NAME_TITLE.style.opacity = "1";
             }
         }
     }
@@ -99,8 +103,8 @@ function setStyles() {
     RESUME.style.opacity = resumeOpacity;
     BUTTON.style.opacity = buttonOpacity;
     if (transMtx.length === 5) {
-        FIRST_NAME_TITLE.style.transform = `translate(${transMtx[0]}px, -${transMtx[1]}px)`;
-        LAST_NAME_TITLE.style.transform = `translate(${transMtx[2]}px, -${transMtx[3]}px)`;
+        FIRST_NAME_TITLE.style.transform = `translate(${transMtx[0]}vw, -${transMtx[1]}vh)`;
+        LAST_NAME_TITLE.style.transform = `translate(${transMtx[2]}vw, -${transMtx[3]}vh)`;
     }
     if (backgroundOpacity <= MIN_OPACITY) {
         RESUME.style.position = "sticky";
