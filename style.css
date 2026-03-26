@@ -258,9 +258,38 @@ dd {
   }
   .education {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-content: space-around;
     width: 50%;
   }
+  .edu-box {
+    display: flex;
+    justify-content: center;
+  }
+  .sfsu-img {
+    width: 50%
+  }
+  .edu-text {
+    text-align: center;
+    vertical-align: center;
+    width: 50%
+  }
+  .sfsu, .fsa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .fsa-img-container {
+    width: 50%
+  }
+  .fsa-link {
+    width: 15%;
+  }
+  .fsa-logo {
+    color: red;
+    }
   .skill-grid {
     --size: 128px;
     margin: 6rem;
@@ -386,7 +415,6 @@ dd {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: scroll;
   padding-top: 9rem;
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
