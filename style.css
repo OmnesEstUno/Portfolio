@@ -218,13 +218,10 @@ dd {
   }
   .name-fixed {
     color: white;
-    position: fixed;
     width: max-content;
-    left: 50%;
-    margin: 2% 0 0 -5.5%;
   }
   .names-fixed {
-    top: 20%;
+    position: fixed;
     opacity: 0;
   }
   .button-wrapper {
