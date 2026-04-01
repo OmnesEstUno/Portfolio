@@ -5,6 +5,7 @@
 
 // **********Variable and constant section***********
 const BODY = document.getElementById('body');
+const WIDTH = window.innerWidth;
 const IMAGE = document.getElementById('landing');
 const HEADER = document.getElementById('header');
 const EMAIL_LINK = document.getElementById('email-me');
@@ -32,10 +33,10 @@ var deltaY = 0; // Pixel distance "covered" per wheel event
 const DT_DELTA_Y_MAX = 0; // Desktop deltaY max
 const MB_DELTA_Y_MAX = 0; // Mobile deltaY max
 var initY = 0; // Start location for reference on mobile
-const FN_TARGET_X = 24.5; // Desktop X translation target
-const FN_TARGET_Y = 17; // Desktop Y translation target
-const LN_TARGET_X = 30; // Desktop X translation target
-const LN_TARGET_Y = 22; // Desktop Y translation target
+const FN_TARGET_X = WIDTH>420? 24.5 : -14; // Desktop X translation target
+const FN_TARGET_Y = WIDTH>420? 17 : 21; // Desktop Y translation target
+const LN_TARGET_X = WIDTH>420? 30 : 13; // Desktop X translation target
+const LN_TARGET_Y = WIDTH>420? 22 : 26; // Desktop Y translation target
 var transMtx = null;
 var isAtTop = true;
 var instDate = 0;
