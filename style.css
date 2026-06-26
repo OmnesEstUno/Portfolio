@@ -117,69 +117,6 @@ p {
 
 /* For Desktop viewing */
 @media (max-width: 1920px) and (min-width: 420px) {
-  .enterance {
-    position: sticky;
-    display: flex;
-    justify-content: center;
-    top: 10px;
-  }
-  .landing {
-    width: 100%;
-    right: 0.7rem;
-    height: auto;
-    will-change: transform;
-    position: fixed;
-    bottom: -82px;
-  }
-  .name {
-    color: white;
-    position: fixed;
-    width: 4em;
-    left: 20%;
-    animation: fade-in ease-in 2s;
-  }
-  .first-name {
-    top: 20%;
-  }
-  .last-name {
-    top: 25%;
-  }
-  .button-wrapper {
-    color: white;
-    position: fixed;
-    left: 45.9vw;
-    top: 75.7vh;
-    z-index: 1;
-    animation: fade-in ease-in-out 4s;
-  }
-  .button-text {
-    pointer-events: none;
-    position: absolute;
-    width: auto;
-    left: 0.8vw;
-    top: 5vh;
-    font-family: "PT Sans", sans-serif;
-    font-weight: 500;
-    font-size: 1.2rem;
-    font-style: normal;
-    text-align: center;
-    transition: all 0.1s;
-    z-index: 1;
-    animation: fade-in ease-in-out 4s;
-  }
-  .button-animation-wrapper {
-    cursor: pointer;
-    display: inline-block;
-    height: 150px;
-    width: 150px;
-    border-radius: 190px;
-    border: 3px solid #110164;
-    background: #02000c;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    transition: all 0.5s;
-  }
   .education {
     display: flex;
     justify-content: space-between;
@@ -223,78 +160,43 @@ p {
   }
 }
 /* For Mobile viewing */
-@media (max-width: 412px) {
-  .enterance {
-    position: sticky;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: -1;
-  }
-  .landing {
-    height: 100vh;
-    width: auto;
-    will-change: transform;
-    position: fixed;
-    top: 0px;
-  }
-  .name {
-    color: white;
-    text-align: center;
-    position: fixed;
-    width: 5em;
-    left: 29%;
-    animation: fade-in ease-in 2s;
-  }
-  .first-name {
-    top: 3%;
-  }
-  .last-name {
-    top: 8%;
-  }
-  .button-wrapper {
-    color: white;
-    position: fixed;
-    left: 31vw;
-    top: 72vh;
-    z-index: 1;
-    animation: fade-in ease-in-out 4s;
-  }
-  .button-text {
-    pointer-events: none;
-    position: absolute;
-    width: auto;
-    left: 0.8vw;
-    top: 1.5vh;
-    font-family: "PT Sans", sans-serif;
-    font-weight: 500;
-    font-size: 1.5rem;
-    font-style: normal;
-    text-align: center;
-    transition: all 0.1s;
-    z-index: 1;
-    animation: fade-in ease-in-out 4s;
-  }
-  .button-animation-wrapper {
-    cursor: pointer;
-    display: inline-block;
-    height: 150px;
-    width: 150px;
-    border-radius: 190px;
-    border: 3px solid #110164;
-    background: #02000c;
-    text-align: center;
-    text-decoration: none;
-    color: #ffffff;
-    transition: all 0.5s;
-  }
+.enterance {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
 }
+
+.landing {
+  height: 90vh;
+  width: auto;
+  will-change: transform, opacity, filter;
+}
+
+.button-wrapper {
+  position: fixed;
+  left: 50%;
+  bottom: 6vh;
+  transform: translateX(-50%);
+  z-index: 5;
+  text-align: center;
+  cursor: pointer;
+  animation: fade-in ease-in-out 2.5s;
+}
+
+.button-text {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-style: normal;
+}
+
 @keyframes fade-in {
-  0% {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
@@ -417,32 +319,6 @@ p {
     border-radius: 0 50% 50% 50%;
     transform: rotateZ(45deg);
     left: -25px;
-  }
-}
-.point-effect {
-  transform: rotateZ(135deg);
-}
-.point-effect:hover {
-  border-top-right-radius: 0;
-}
-.point-effect :active {
-  box-shadow: -90px 90px 0 #02000c inset;
-}
-.point-effect i {
-  transform: rotateZ(45deg);
-  display: inline-block;
-}
-
-.infinite-point-effect {
-  animation: point-effect-loop ease-in-out 2s infinite;
-}
-
-@keyframes point-effect-loop {
-  50% {
-    border-top-right-radius: 0px;
-  }
-  100% {
-    border-top-right-radius: 190px;
   }
 }
 
