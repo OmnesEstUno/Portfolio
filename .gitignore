@@ -18,3 +18,6 @@ _site/
 Gemfile.lock
 
 jsconfig.json
+
+# Superpowers brainstorming visual companion (local mockups, not part of the site)
+.superpowers/
