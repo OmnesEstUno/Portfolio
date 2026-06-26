@@ -16,27 +16,17 @@
         <div class="enterance">
             <img src="assets/images/landing.png" class="landing" id="landing"/>
         </div>
-        <div class="header-container" style="display: flex; justify-content: center;">
-            <div class="header" id="header"></div>
-        </div>
-        <div class="banner-content">
-            <div class="email-me link" id="email-me" href="mailto:elliotjwarren@gmail.com">
-                <a href="mailto:elliotjwarren@gmail.com">Email<br>📧<br>Me</a>
-            </div>
-            <div class="print-resume link" id="print-resume" onclick="printResume()">
-                <a class="print-resume-icon" onclick="printResume()">🖨️</a>
-            </div>
-            <div class="names-animated" id="names-animated">
-                <h1 class="name-animated first-name-animated" id="first-name-animated">Elliot</h1>
-                <h1 class="name-animated last-name-animated" id="last-name-animated">Warren</h1>
-            </div>
-            <div class="names-fixed" id="names-fixed">
-                <h1 class="name-fixed full-name-fixed" id="full-name-fixed">Elliot Warren</h1>
-            </div>
-            <div class="about-me link" id="about-me">
-                <a href="about_me.html">About<br>👤<br>Me</a>
-            </div>
-        </div>
+        <header class="site-header" id="header">
+            <nav class="nav container">
+                <a class="nav-link" href="mailto:elliotjwarren@gmail.com">Email</a>
+                <a class="nav-link" href="assets/Elliot_Warren_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+                <div class="nav-name">
+                    <span class="nav-first" id="first-name-animated">Elliot</span>
+                    <span class="nav-last" id="last-name-animated">Warren</span>
+                </div>
+                <a class="nav-link" href="about_me.html">About</a>
+            </nav>
+        </header>
         <div class="button-wrapper" id="scroll-button" onclick="autoScrollHandler()">
             <i class="button-text" id="button-text">Click anywhere<br>to continue<br>&#x2193;</i>
             <div class="button-animation-wrapper point-effect" id="point-effect">
