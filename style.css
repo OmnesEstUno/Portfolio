@@ -1,126 +1,79 @@
+:root {
+  --bg: #0b0f12;
+  --surface: #15191d;
+  --surface-2: #1b2026;
+  --border: #243038;
+  --accent: #22d3ee;
+  --accent-ink: #04222a;
+  --text: #e6edf0;
+  --text-muted: #9fb0b8;
+  --radius: 10px;
+  --radius-sm: 8px;
+  --maxw: 1100px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
 }
 
 body {
-  background: #100f15;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PT Sans", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--accent);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
 }
 
 p {
   font-family: "PT Sans", sans-serif;
 }
 
-dd {
-  display: list-item;
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-.resume-box {
-  display: flex;
-  justify-content: center;
-}
-
-.about-me-body {
-  color: white;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 25% 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  justify-items: center;
-  align-items: center;
-  grid-template-areas: "self self" "tinker_text tinker" "aquarium aquarium_text" "pets_text pets";
-}
-
-.about-section {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  width: 110%;
-  height: 100%;
-  padding: 2rem;
-}
-
-.about_me_text {
-  font-family: "PT Sans", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 2rem;
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
   text-align: center;
-  line-height: 4rem;
+  margin: 0 0 2rem;
+}
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 2.25rem;
+  }
 }
 
-.self {
-  grid-area: self;
-  font-size: 3em;
-  display: flex;
-  align-items: center;
+.section-break {
+  width: min(80%, 640px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border: 0;
+  margin: 4rem auto;
 }
 
-.self-photo {
-  cursor: pointer;
-}
-
-.tinker {
-  grid-area: tinker;
-}
-
-.tinker_text {
-  grid-area: tinker_text;
-  width: 60%;
-}
-
-.aquarium {
-  grid-area: aquarium;
-}
-
-.aquarium_text {
-  grid-area: aquarium_text;
-  width: 40%;
-}
-
-.pets {
-  grid-area: pets;
-}
-
-.pets_text {
-  grid-area: pets_text;
-  width: 40%;
-}
-
-.link {
-  cursor: pointer;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  width: 50px;
-  height: 25px;
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-.back-button {
-  position: absolute;
-  top: 28px;
-  left: 52%;
-  font-size: 0.7rem;
-  animation: fade-in ease-in-out 10s;
-}
-
-/**/
-/*************/
-/**************************************/
-/****************************************************************************/
 /* For Desktop viewing */
-/****************************************************************************/
-/**************************************/
-/*************/
-/**/
-
 @media (max-width: 1920px) and (min-width: 420px) {
   .enterance {
     position: sticky;
@@ -129,7 +82,7 @@ dd {
     top: 10px;
   }
   .banner-content {
-    position: relative;
+    position: fixed;
     display: flex;
     justify-content: center;
     top: 10px;
@@ -141,7 +94,7 @@ dd {
   .header {
     background-color: rgba(255, 255, 255, 0.2);
     opacity: 0;
-    height: 6em;
+    height: 120px;
     width: 42%;
     overscroll-behavior: none;
     position: fixed;
@@ -181,6 +134,7 @@ dd {
   .print-resume {
     position: fixed;
     display: none;
+    left: 49.5%;
     top: 1rem;
     text-align: center;
     white-space: nowrap;
@@ -193,36 +147,25 @@ dd {
     text-align: center;
   }
   .landing {
-    height: 100vh;
-    width: 100vw;
-    object-fit: cover;
-    background-size: cover;
-    top: 0;
+    width: 100%;
     right: 0.7rem;
+    height: auto;
     will-change: transform;
     position: fixed;
-    background-attachment: fixed;
+    bottom: -82px;
   }
-  .name-animated {
+  .name {
     color: white;
     position: fixed;
     width: 4em;
     left: 20%;
     animation: fade-in ease-in 2s;
   }
-  .first-name-animated {
+  .first-name {
     top: 20%;
   }
-  .last-name-animated {
+  .last-name {
     top: 25%;
-  }
-  .name-fixed {
-    color: white;
-    width: max-content;
-  }
-  .names-fixed {
-    position: fixed;
-    opacity: 0;
   }
   .button-wrapper {
     color: white;
@@ -260,63 +203,11 @@ dd {
     color: #ffffff;
     transition: all 0.5s;
   }
-  .projects {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  width: 100%;
-  margin: 0;
-  padding: 2rem;
-  }
-  .project {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .project-logo {
-    width: auto;
-    height: 300px;
-  }
-  .project-text {
-    width: 300px;
-    height: auto;
-    padding: 1em;
-  }
   .education {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    align-content: space-around;
     width: 50%;
   }
-  .edu-box {
-    display: flex;
-    justify-content: center;
-  }
-  .sfsu-img {
-    width: 50%
-  }
-  .edu-text {
-    text-align: center;
-    vertical-align: center;
-    width: 50%
-  }
-  .sfsu, .fsa{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .fsa-img-container {
-    width: 50%
-  }
-  .fsa-link {
-    width: 15%;
-  }
-  .fsa-logo {
-    color: red;
-    }
   .skill-grid {
     --size: 128px;
     margin: 6rem;
@@ -354,15 +245,7 @@ dd {
     margin: 10px;
   }
 }
-/**/
-/*************/
-/**************************************/
-/****************************************************************************/
 /* For Mobile viewing */
-/****************************************************************************/
-/**************************************/
-/*************/
-/**/
 @media (max-width: 412px) {
   .enterance {
     position: sticky;
@@ -379,65 +262,6 @@ dd {
     position: fixed;
     top: 0px;
   }
-  .banner-content {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    top: 10px;
-    z-index: 1;
-  }
-  .header {
-    background-color: rgba(255, 255, 255, 0.2);
-    opacity: 0;
-    height: 6em;
-    width: 100%;
-    overscroll-behavior: none;
-    position: fixed;
-    top: 0px;
-    backdrop-filter: blur(10px);
-    border-radius: 0 0 50px 50px;
-    vertical-align: middle;
-    z-index: 1;
-  }
-  .email-me {
-    position: fixed;
-    display: none;
-    left: 6%;
-    top: 2rem;
-    text-align: center;
-  }
-  .print-resume {
-    position: fixed;
-    display: none;
-    top: 4rem;
-    text-align: center;
-    white-space: nowrap;
-  }
-  .about-me {
-    position: fixed;
-    display: none;
-    left: 84%;
-    top: 2rem;
-    text-align: center;
-  }
-  .names-animated {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-  }
-  .name-animated {
-    color: white;
-    position: fixed;
-    width: 4em;
-    animation: fade-in ease-in 2s;
-  }
-  .first-name-animated {
-    top: 20%;
-  }
-  .last-name-animated {
-    top: 25%;
-  }
   .name {
     color: white;
     text-align: center;
@@ -452,17 +276,10 @@ dd {
   .last-name {
     top: 8%;
   }
-  .names-fixed {
-    color: white;
-    position: absolute;
-    top: -1rem;
-    opacity: 0
-  }
   .button-wrapper {
-    display: flex;
-    position: relative;
-    justify-content: center;
     color: white;
+    position: fixed;
+    left: 31vw;
     top: 72vh;
     z-index: 1;
     animation: fade-in ease-in-out 4s;
@@ -471,7 +288,8 @@ dd {
     pointer-events: none;
     position: absolute;
     width: auto;
-    top: 5vh;
+    left: 0.8vw;
+    top: 1.5vh;
     font-family: "PT Sans", sans-serif;
     font-weight: 500;
     font-size: 1.5rem;
@@ -494,57 +312,6 @@ dd {
     color: #ffffff;
     transition: all 0.5s;
   }
-  .projects {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  width: 100%;
-  margin: 0;
-  padding: 2rem;
-  }
-  .project {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-  }
-  .project-logo {
-    width: auto;
-    height: 50vw;
-  }
-  .project-text {
-    width: 300px;
-    height: auto;
-    padding: 1em;
-  }
-  .section-break {
-    width: 80%;
-    height: 1rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    margin: 5rem;
-  }
-  .skill-grid {
-    --size: 128px;
-    text-align: center;
-    z-index: 2;
-  }
-  .skill-link {
-    height: var(--size);
-    width: var(--size);
-    display: inline-block;
-    vertical-align: middle;
-    margin: 10px;
-    position: relative;
-  }
-  .skill-img {
-    width: 100%;
-    max-height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 }
 @keyframes fade-in {
   0% {
@@ -566,6 +333,7 @@ dd {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  overflow: scroll;
   padding-top: 9rem;
   font-family: "PT Sans", sans-serif;
   font-weight: 700;
@@ -609,11 +377,37 @@ dd {
   margin: 0px 20px 20px 20px;
 }
 
+.projects {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0;
+  padding: 2rem;
+}
+
+.project {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-logo {
+  width: auto;
+  height: 300px;
+}
+
+.project-text {
+  width: 300px;
+  height: auto;
+  padding: 1em;
+}
+
 @media screen and (min-width: 768px) {
   .timeline {
     display: grid;
-    grid-template-columns: 1fr 0px 1fr;
-    justify-content: center;
+    grid-template-columns: 1fr 3px 1fr;
   }
   .timeline-middle {
     position: relative;

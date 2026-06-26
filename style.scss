@@ -1,100 +1,75 @@
 @use 'sass:math';
 
-html, body {
-    height: 100%;
+// ---- Design tokens ----
+:root {
+  --bg:         #0b0f12;
+  --surface:    #15191d;
+  --surface-2:  #1b2026;
+  --border:     #243038;
+  --accent:     #22d3ee;
+  --accent-ink: #04222a;
+  --text:       #e6edf0;
+  --text-muted: #9fb0b8;
+
+  --radius:     10px;
+  --radius-sm:  8px;
+  --maxw:       1100px;
 }
+
+// ---- Breakpoint mixin (mobile-first) ----
+// Usage: @include respond-to(tablet) { ... }
+$bp-tablet:  768px;
+$bp-desktop: 1024px;
+@mixin respond-to($bp) {
+  @if $bp == tablet  { @media (min-width: $bp-tablet)  { @content; } }
+  @else if $bp == desktop { @media (min-width: $bp-desktop) { @content; } }
+}
+
+// ---- Reset / base ----
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { height: 100%; }
 
 body {
-    background: #100f15;
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "PT Sans", sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-    text-decoration: none;
-    color: white;
+a { text-decoration: none; color: var(--accent); }
+a:hover { text-decoration: underline; }
+
+img { max-width: 100%; }
+
+p { font-family: "PT Sans", sans-serif; }
+
+// Reusable centered content container
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-p {
-    font-family: "PT Sans", sans-serif;
+// Section heading used across the resume
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 2rem;
+  @include respond-to(desktop) { font-size: 2.25rem; }
 }
 
-dd {
-    display: list-item;
-}
-
-.resume-box {
-    display: flex;
-    justify-content: center;
-}
-
-.about-me-body {
-    color: white;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 25% 1fr 1fr 1fr;
-    gap: 0px 0px;
-    grid-auto-flow: row;
-    justify-items: center;
-    align-items: center;
-    grid-template-areas: 
-        "self self"
-        "tinker_text tinker"
-        "aquarium aquarium_text"
-        "pets_text pets"; 
-}
-
-.about-section {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    width: 110%;
-    height: 100%;
-    padding: 2rem;
-}
-
-.about_me_text {
-    font-family: "PT Sans", sans-serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 2rem;
-    text-align: center;
-    line-height: 4rem;
-}
-
-.self { 
-    grid-area: self;
-    font-size: 3em;
-    display: flex;
-    align-items: center;
-}
-
-.self-photo {
-    cursor: pointer;
-}
-
-.tinker { grid-area: tinker; }
-.tinker_text { grid-area: tinker_text; width: 60%;}
-.aquarium { grid-area: aquarium; }
-.aquarium_text { grid-area: aquarium_text; width: 40%;}
-.pets { grid-area: pets; }
-.pets_text { grid-area: pets_text; width: 40%;}
-
-.link {
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    width: 50px;
-    height: 25px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.back-button {
-    position: absolute;
-    top: 28px;
-    left: 52%;
-    font-size: 0.7rem;
-    animation: fade-in ease-in-out 10s;
+// Thin accent divider between sections
+.section-break {
+  width: min(80%, 640px);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border: 0;
+  margin: 4rem auto;
 }
 
 /* For Desktop viewing */
