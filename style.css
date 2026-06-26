@@ -144,13 +144,6 @@ p {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .section-break {
-    width: 80%;
-    height: 1rem;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    margin: 5rem;
-  }
   .about-image {
     width: 100%;
     height: auto;
@@ -200,62 +193,129 @@ p {
     opacity: 1;
   }
 }
+.resume {
+  position: relative;
+  z-index: 1;
+  padding-top: 6rem;
+  opacity: 0;
+}
+
+body.intro-done .resume {
+  opacity: 1;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 1.75rem;
+}
+
+.tl-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+}
+
+.tl-logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 0.5rem;
+}
+
+.tl-role {
+  margin: 0.25rem 0;
+  font-size: 1.05rem;
+}
+
+.tl-meta {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tl-points {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.tl-points li {
+  margin: 0.25rem 0;
+}
+
 .date {
   font-style: italic;
 }
 
-.resume {
-  position: fixed;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  overflow: scroll;
-  padding-top: 9rem;
-  font-family: "PT Sans", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  color: white;
-  background-color: transparent;
-  opacity: 0;
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, rgba(34, 211, 238, 0.4) 10%, rgba(34, 211, 238, 0.4) 90%, transparent);
 }
 
-.design {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.tl-item {
+  position: relative;
 }
 
-.timeline {
-  width: 80%;
-  height: auto;
-  max-width: 1440px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 1.4rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  border: 2px solid var(--bg);
 }
 
-.timeline-content {
-  padding: 20px;
-  background: #1f1f1f;
-  -webkit-box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
-  box-shadow: 5px 5px 10px #1a1a1a, -5px -5px 10px #242424;
-  border-radius: 5px;
-  color: white;
-  padding: 1.75rem;
-  transition: 0.4s ease;
-  overflow-wrap: break-word !important;
-  margin: 1rem;
-  margin-bottom: 20px;
-  border-radius: 6px;
+@media (min-width: 1024px) {
+  .timeline {
+    padding-left: 0;
+  }
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .tl-item {
+    width: 50%;
+  }
+  .tl-item:nth-child(odd) {
+    left: 0;
+    padding-right: 2.5rem;
+    text-align: right;
+  }
+  .tl-item:nth-child(even) {
+    left: 50%;
+    padding-left: 2.5rem;
+  }
+  .tl-item:nth-child(odd) .tl-points {
+    list-style-position: inside;
+    padding-left: 0;
+  }
+  .tl-item:nth-child(odd) .tl-logo {
+    margin-left: auto;
+  }
+  .tl-item::before {
+    top: 1.4rem;
+  }
+  .tl-item:nth-child(odd)::before {
+    left: auto;
+    right: -7px;
+    margin: 0;
+  }
+  .tl-item:nth-child(even)::before {
+    left: -7px;
+    margin: 0;
+  }
 }
-
-.timeline-component {
-  margin: 0px 20px 20px 20px;
-}
-
 .projects {
   display: flex;
   flex-flow: row wrap;
@@ -281,45 +341,6 @@ p {
   width: 300px;
   height: auto;
   padding: 1em;
-}
-
-@media screen and (min-width: 768px) {
-  .timeline {
-    display: grid;
-    grid-template-columns: 1fr 3px 1fr;
-  }
-  .timeline-middle {
-    position: relative;
-    background-image: linear-gradient(45deg, transparent, #06187a, transparent);
-    width: 3px;
-    height: 100%;
-  }
-  .main-middle {
-    opacity: 0;
-  }
-  .timeline-circle {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.5);
-  }
-  .tc-left {
-    border-radius: 50% 50% 50% 0;
-    transform: rotateZ(45deg);
-    left: -25px;
-  }
-  .tc-right {
-    border-radius: 50% 0 50% 50%;
-    transform: rotateZ(45deg);
-    left: -25px;
-  }
-  .tc-beginning {
-    border-radius: 0 50% 50% 50%;
-    transform: rotateZ(45deg);
-    left: -25px;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
