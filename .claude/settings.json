@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//home/Grey/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/brainstorming/**)",
+      "Read(//var/home/Grey/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/brainstorming/**)",
+      "Bash(/home/Grey/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/brainstorming/scripts/start-server.sh --project-dir /var/home/Grey/Projects/Portfolio)",
+      "Bash(git checkout *)",
+      "Bash(git commit -q -m ' *)",
+      "Bash(/home/Grey/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/brainstorming/scripts/stop-server.sh /var/home/Grey/Projects/Portfolio/.superpowers/brainstorm/495268-1782426835)",
+      "Bash(timeout 120 npx --yes sass --version)",
+      "Read(//home/Grey/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/subagent-driven-development/**)",
+      "Read(//var/home/Grey/.claude/plugins/cache/superpowers-marketplace/superpowers/5.0.7/skills/subagent-driven-development/**)",
+      "Bash(npx --yes sass style.scss style.css)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(git commit *)",
+      "Bash(echo \"Exit code: $?\")",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio show 04c17f8:style.scss)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio log db5f9e7..04c17f8 --oneline)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio show 04c17f8:style.css)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio diff db5f9e742cab418a25091b36773fedbe6bbe94ad..04c17f8 -- style.scss)",
+      "Bash(echo \"Exit: $?\")",
+      "Bash(grep -n \"rgba\\\\|hardcoded\\\\|#[0-9a-fA-F]\\\\{3,6\\\\}\")",
+      "Bash(echo \"EXIT: $?\")",
+      "Bash(npx --yes sass style.scss /tmp/style_check.css)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio show d63a53b:index.html)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio show d63a53b:style.scss)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio show 97fc8b2:index.html)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio show 97fc8b2:style.scss)",
+      "Bash(npx --yes sass style.scss /tmp/style-check.css)",
+      "Bash(python3 -c ' *)",
+      "Bash(echo \"Compile exit: $?\")",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio branch --show-current)",
+      "Bash(git -C /var/home/Grey/Projects/Portfolio commit -m 'projects: inline cards linking to new dedicated detail pages')",
+      "Bash(git stash *)",
+      "Bash(npx --yes sass style.scss /tmp/claude-1000/-var-home-Grey-Projects-Portfolio/fe56f2a5-357e-46c6-a136-b26cbc9771f1/scratchpad/test-compile.css)",
+      "Bash(python3 -c \"cols=6; icon=72; gap_rem=1.5; px_per_rem=16; total=cols*icon + \\(cols-1\\)*gap_rem*px_per_rem; print\\(f'6-col skill-grid min-content: {total}px vs max-width:600px'\\)\")",
+      "Bash(curl -fsSL \"https://familymattershc.com/wp-content/uploads/Family-Matters-In-Home-Care.svg\" -o assets/images/family-matters-logo.svg)",
+      "Bash(curl -fsSL \"https://paradyme.us/assets/images/Paradyme_Cathexis.svg\" -o assets/images/paradyme-logo.svg)",
+      "Bash(curl -fsSL \"https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png\" -o assets/images/swift-logo.png)",
+      "Bash(echo \"SASS_EXIT:$?\")"
+    ]
+  }
+}
