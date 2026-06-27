@@ -42,10 +42,6 @@ img {
   max-width: 100%;
 }
 
-p {
-  font-family: "PT Sans", sans-serif;
-}
-
 .container {
   width: 100%;
   max-width: var(--maxw);
@@ -79,9 +75,17 @@ p {
   left: 0;
   right: 0;
   z-index: 10;
-  background: rgba(11, 15, 18, 0.55);
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+}
+
+#body .site-header {
+  opacity: 0;
+}
+
+.about-page .nav {
+  justify-content: space-between;
 }
 
 .nav {
@@ -190,7 +194,6 @@ p {
   transform: scale(1.12);
 }
 
-/* For Mobile viewing */
 .enterance {
   position: fixed;
   inset: 0;
@@ -406,9 +409,10 @@ body.intro-done .resume {
 .project-detail {
   padding: 5rem 1.5rem;
   max-width: 800px;
+  margin: 0 auto;
 }
 
-.project-detail h3 {
+.project-detail h2 {
   margin-top: 2rem;
   color: var(--accent);
 }

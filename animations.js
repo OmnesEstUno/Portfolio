@@ -30,6 +30,7 @@ function autoScrollHandler() {
       requestAnimationFrame(frame);
     } else {
       if (BUTTON) BUTTON.style.display = 'none';
+      if (BUTTON) BUTTON.removeAttribute('onclick');
       RESUME.style.position = 'static';
       document.body.classList.add('intro-done');
     }
