@@ -253,31 +253,38 @@ body.intro-done .resume { opacity: 1; }
   .tl-item:nth-child(even)::before { left: -7px; margin: 0; }
 }
 
+// ---- Projects ----
 .projects {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    width: 100%;
-    margin: 0;
-    padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  @include respond-to(tablet) { grid-template-columns: 1fr 1fr; }
 }
+.project-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  color: var(--text);
+  transition: transform 0.2s, border-color 0.2s;
+  &:hover { transform: translateY(-4px); border-color: var(--accent); text-decoration: none; }
+}
+.project-media { width: 100%; height: 220px; object-fit: cover; background: var(--bg); }
+.project-body { padding: 1.25rem; }
+.project-name { margin: 0 0 0.5rem; }
+.project-more { display: inline-block; margin-top: 0.75rem; color: var(--accent); font-weight: 700; }
 
-.project {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
+// ---- Project detail pages ----
+.project-detail { padding: 5rem 1.5rem; max-width: 800px; }
+.project-detail h3 { margin-top: 2rem; color: var(--accent); }
+.project-hero {
+  width: 100%; max-height: 360px; object-fit: cover;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  margin-bottom: 1.5rem;
 }
-
-.project-logo {
-    width: auto;
-    height: 300px;
-}
-
-.project-text {
-    width: 300px;
-    height: auto;
-    padding: 1em;
-}
+.back-link { display: inline-block; margin-bottom: 1.5rem; font-weight: 700; }
+.placeholder-note { color: var(--text-muted); font-style: italic; }
 
 
