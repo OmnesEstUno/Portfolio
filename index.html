@@ -6,7 +6,7 @@
         <meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, minimum-scale=1.0, target-densitydpi=device-dpi"/>
         <meta name="theme-color" content="#0b0f12"/>
         <link rel="stylesheet" href="style.css" type="text/css"/>
-        <noscript><style>#body .site-header, .resume { opacity: 1 !important; }</style></noscript>
+        <noscript><style>#body .site-header, .resume { opacity: 1 !important; } .enterance, .hero-name, .button-wrapper { display: none !important; } #body { overflow: auto !important; }</style></noscript>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -22,19 +22,24 @@
         <div class="enterance">
             <img src="assets/images/landing.png" class="landing" id="landing" alt=""/>
         </div>
+        <div class="hero-name" id="hero-name" aria-hidden="true">
+            <span class="hero-word hero-first" id="hero-first">Elliot</span>
+            <span class="hero-word hero-last" id="hero-last">Warren</span>
+        </div>
         <header class="site-header" id="header">
             <nav class="nav container">
                 <a class="nav-link" href="mailto:elliotjwarren@gmail.com">Email</a>
                 <a class="nav-link" href="assets/Elliot_Warren_Resume.pdf" target="_blank" rel="noopener">Resume</a>
                 <div class="nav-name">
-                    <span class="nav-first">Elliot</span>
-                    <span class="nav-last">Warren</span>
+                    <span class="nav-first" id="nav-first">Elliot</span>
+                    <span class="nav-last" id="nav-last">Warren</span>
                 </div>
                 <a class="nav-link" href="about_me.html">About</a>
             </nav>
         </header>
         <div class="button-wrapper" id="scroll-button" onclick="autoScrollHandler()">
-            <i class="button-text">Click anywhere to continue&nbsp;&#x2193;</i>
+            <i class="button-text">Click anywhere<br>to continue<br>&#x2193;</i>
+            <div class="button-shape point-effect infinite-point-effect"></div>
         </div>
         <div class="resume-box">
             <section class="resume container" id="resume">
@@ -91,11 +96,27 @@
                 <hr class="section-break">
                 <h2 class="section-title">Projects</h2>
                 <div class="projects">
+                    <a class="project-card" href="projects/lotus.html">
+                        <img class="project-media" src="assets/images/lotus-logo.png" alt="Lotus logo">
+                        <div class="project-body">
+                            <h3 class="project-name">Lotus</h3>
+                            <p>A full-stack personal-finance web app — React + TypeScript frontend on a zero-dependency Cloudflare Workers + KV backend, with password + TOTP two-factor auth, CSV and pay-stub import, and a Recharts analytics dashboard.</p>
+                            <span class="project-more">View details →</span>
+                        </div>
+                    </a>
+                    <a class="project-card" href="projects/aurora.html">
+                        <img class="project-media" src="assets/images/aurora-logo.svg" alt="Aurora logo">
+                        <div class="project-body">
+                            <h3 class="project-name">Aurora</h3>
+                            <p>A cross-platform desktop AI chat client in Electron + React + TypeScript — streaming LLM responses, local SQLite history, a sandboxed context-isolated IPC bridge, and real-time presence over WebSockets.</p>
+                            <span class="project-more">View details →</span>
+                        </div>
+                    </a>
                     <a class="project-card" href="projects/aquamate.html">
                         <img class="project-media" src="assets/images/AquaMate_logo_square.png" alt="AquaMate logo">
                         <div class="project-body">
                             <h3 class="project-name">AquaMate</h3>
-                            <p>Team leader for a group of seven. Led complete-lifecycle development of an aquarium-building website, from concept to simulated MVP — delegating tasks, coordinating the schedule and meetings, and contributing code.</p>
+                            <p>A React + Cloudflare Workers aquatic-life hub — browse and search a species catalog backed by R2 image storage, and build mock aquariums for planning. Team-led capstone (group of seven) at SF State, live at aquamate.me.</p>
                             <span class="project-more">View details →</span>
                         </div>
                     </a>
@@ -114,26 +135,26 @@
                 <hr class="section-break">
                 <h2 class="section-title">Education</h2>
                 <div class="education">
-                    <div class="edu-card">
-                        <a class="edu-logo" href="https://cs.sfsu.edu/" target="_blank" rel="noopener">
+                    <a class="edu-card" href="https://cs.sfsu.edu/" target="_blank" rel="noopener">
+                        <div class="edu-logo">
                             <img src="assets/images/sfsu_gator.png" alt="San Francisco State University logo">
-                        </a>
+                        </div>
                         <div class="edu-text">
                             <h3>San Francisco State University</h3>
                             <h4>Bachelor of Science in Computer Science</h4>
                             <p class="tl-meta">Aug 2022 – May 2024</p>
                         </div>
-                    </div>
-                    <div class="edu-card">
-                        <a class="edu-logo" href="https://www.fullstackacademy.com/programs/cybersecurity-bootcamp" target="_blank" rel="noopener">
+                    </a>
+                    <a class="edu-card" href="https://www.fullstackacademy.com/programs/cybersecurity-bootcamp" target="_blank" rel="noopener">
+                        <div class="edu-logo">
                             <img src="assets/images/fullstack-academy-logo.svg" alt="Fullstack Academy logo">
-                        </a>
+                        </div>
                         <div class="edu-text">
                             <h3>Fullstack Academy &amp; San Jose State University</h3>
                             <h4>Certificate of Completion — Cybersecurity</h4>
                             <p class="tl-meta">May 2021 – Dec 2021</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <hr class="section-break">
                 <h2 class="section-title">Proficiencies</h2>

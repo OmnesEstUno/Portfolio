@@ -17,19 +17,41 @@
     <title>AquaMate — Elliot Warren</title>
 </head>
 <body class="project-page">
+    <header class="site-header">
+        <nav class="nav container">
+            <a class="nav-link" href="../index.html#resume">← Back to portfolio</a>
+        </nav>
+    </header>
     <main class="project-detail">
-        <a class="back-link" href="../index.html">← Back to portfolio</a>
         <h1 class="section-title">AquaMate</h1>
-        <img class="project-hero" src="../assets/images/AquaMate_logo_square.png" alt="AquaMate logo">
-        <p>AquaMate is an aquarium-building website taken from concept through a simulated MVP by a team of seven, which I led.</p>
+        <a class="project-logo-link" href="https://aquamate.me" target="_blank" rel="noopener">
+            <img class="project-logo-free" src="../assets/images/AquaMate_logo_square.png" alt="AquaMate logo — visit aquamate.me">
+        </a>
+        <p>AquaMate is a unified hub for aquatic life and aquarium care — a place for hobbyists of any experience level to browse and learn about a wide range of fauna and flora, and to build mock aquariums for planning. It began as a San Francisco State University CS capstone (forked from the department's project under Professor Song) and is live at <a href="https://aquamate.me" target="_blank" rel="noopener">aquamate.me</a>.</p>
+
+        <h2>Architecture</h2>
+        <ul>
+            <li><strong>Frontend:</strong> React + React Router single-page app, with a custom species browser, search, and an interactive mock-aquarium builder tool.</li>
+            <li><strong>Backend:</strong> a Cloudflare Worker API serving species data and imagery.</li>
+            <li><strong>Storage:</strong> Cloudflare R2 buckets for fauna and flora image assets.</li>
+            <li><strong>Data pipeline:</strong> tooling to compile, migrate, and validate the species schema that powers the catalog.</li>
+        </ul>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Species catalog</strong> — browse and search a large array of aquatic fauna and flora with care information.</li>
+            <li><strong>Aquarium builder</strong> — assemble mock tanks for planning, mixing species and layout.</li>
+            <li><strong>Education-first</strong> — approachable info pages aimed at hobbyists of every experience level.</li>
+        </ul>
+
         <h2>My role</h2>
         <ul>
-            <li>Team leader for a group of seven.</li>
-            <li>Coordinated the project plan, schedule, and meetings.</li>
-            <li>Delegated and tracked tasks, and contributed code.</li>
+            <li>Team leader for a group of seven — set the project plan and schedule, ran meetings, and delegated and tracked tasks across front-end, back-end, scrum, and git roles.</li>
+            <li>Drove the project through its full lifecycle, from concept to a deployed, working site.</li>
+            <li>Contributed code across the React front end and the species data tooling.</li>
         </ul>
-        <h2>Highlights</h2>
-        <p class="placeholder-note">[Add screenshots, the tech stack, and a link to the live demo / repo here.]</p>
+
+        <p class="placeholder-note">[Add screenshots of the species catalog and aquarium builder here.]</p>
     </main>
 </body>
 </html>

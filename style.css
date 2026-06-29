@@ -10,6 +10,7 @@
   --radius: 10px;
   --radius-sm: 8px;
   --maxw: 1100px;
+  --card-bg: color-mix(in srgb, var(--surface) 72%, transparent);
 }
 
 *, *::before, *::after {
@@ -18,6 +19,10 @@
 
 html, body {
   height: 100%;
+}
+
+html {
+  background: var(--bg);
 }
 
 body {
@@ -96,8 +101,8 @@ img {
   opacity: 0;
 }
 
-.about-page .nav {
-  justify-content: space-between;
+.about-page .nav, .project-page .nav {
+  justify-content: flex-start;
 }
 
 .nav {
@@ -146,10 +151,17 @@ img {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background: var(--surface);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem;
+  color: var(--text);
+  transition: transform 0.2s, border-color 0.2s;
+}
+.edu-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  text-decoration: none;
 }
 
 .edu-logo {
@@ -209,35 +221,97 @@ img {
 .enterance {
   position: fixed;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   z-index: 0;
+  overflow: hidden;
 }
 
 .landing {
-  height: 90vh;
-  width: auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
   will-change: transform, opacity, filter;
+}
+
+.hero-name {
+  position: fixed;
+  left: 7vw;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  line-height: 0.9;
+  pointer-events: none;
+  animation: fade-in ease-in-out 1.5s;
+}
+
+.hero-word {
+  font-weight: 700;
+  font-size: clamp(3rem, 13vw, 8rem);
+  transform-origin: top left;
+  will-change: transform;
+}
+
+.hero-last {
+  color: var(--accent);
+}
+
+body.intro-done .hero-name {
+  display: none;
 }
 
 .button-wrapper {
   position: fixed;
   left: 50%;
-  bottom: 6vh;
+  bottom: 7vh;
   transform: translateX(-50%);
-  z-index: 5;
-  text-align: center;
+  z-index: 6;
   cursor: pointer;
   animation: fade-in ease-in-out 2.5s;
 }
 
 .button-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 130px;
+  text-align: center;
   color: var(--text);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-style: normal;
+  line-height: 1.3;
+  pointer-events: none;
+  z-index: 1;
 }
 
+.button-shape {
+  height: 150px;
+  width: 150px;
+  border-radius: 190px;
+  border: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--bg) 65%, transparent);
+  transition: all 0.5s;
+}
+
+.point-effect {
+  transform: rotateZ(135deg);
+}
+
+.infinite-point-effect {
+  animation: point-effect-loop ease-in-out 2s infinite;
+}
+
+@keyframes point-effect-loop {
+  50% {
+    border-top-right-radius: 0;
+  }
+  100% {
+    border-top-right-radius: 190px;
+  }
+}
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -246,6 +320,10 @@ img {
     opacity: 1;
   }
 }
+#body:not(.intro-done) {
+  overflow: hidden;
+}
+
 .resume {
   position: relative;
   z-index: 1;
@@ -266,10 +344,15 @@ body.intro-done .resume {
 }
 
 .tl-card {
-  background: var(--surface);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.tl-card:hover {
+  transform: scale(1.02);
+  border-color: var(--accent);
 }
 
 .tl-logo {
@@ -383,7 +466,7 @@ body.intro-done .resume {
 .project-card {
   display: flex;
   flex-direction: column;
-  background: var(--surface);
+  background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
@@ -399,8 +482,9 @@ body.intro-done .resume {
 .project-media {
   width: 100%;
   height: 220px;
-  object-fit: cover;
+  object-fit: contain;
   background: var(--bg);
+  padding: 0.75rem;
 }
 
 .project-body {
@@ -419,7 +503,7 @@ body.intro-done .resume {
 }
 
 .project-detail {
-  padding: 5rem 1.5rem;
+  padding: 6rem 1.5rem 4rem;
   max-width: 800px;
   margin: 0 auto;
 }
@@ -438,15 +522,27 @@ body.intro-done .resume {
   margin-bottom: 1.5rem;
 }
 
-.back-link {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  font-weight: 700;
-}
-
 .placeholder-note {
   color: var(--text-muted);
   font-style: italic;
+}
+
+.project-logo-link {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  transition: transform 0.2s;
+}
+.project-logo-link:hover {
+  transform: scale(1.04);
+}
+
+.project-logo-free {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  margin: 0 auto 2rem;
 }
 
 .about-main {
