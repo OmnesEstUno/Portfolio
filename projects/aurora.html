@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0b0f12">
-    <meta name="description" content="Aurora — a cross-platform Electron + React desktop AI chat client by Elliot Warren.">
+    <meta name="description" content="Aurora — an agentic Bazzite/Linux desktop assistant (Electron + React + TypeScript) that answers system questions by inspecting your machine via a local LLM and read-only tools.">
     <meta property="og:title" content="Aurora — Elliot Warren">
-    <meta property="og:description" content="Cross-platform desktop AI chat client: Electron + React + TypeScript, streaming LLM, SQLite, secure IPC.">
+    <meta property="og:description" content="Agentic Bazzite/Linux desktop assistant: a local Ollama LLM runs a tool-calling loop over read-only inspection tools, grounded in real system state.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="../assets/images/aurora-logo.svg">
     <link rel="icon" href="../assets/images/Grey.png" type="image/x-icon">
@@ -25,28 +25,28 @@
     <main class="project-detail">
         <h1 class="section-title">Aurora</h1>
         <img class="project-logo-free" src="../assets/images/aurora-logo.svg" alt="Aurora logo">
-        <p>Aurora is a cross-platform desktop AI chat client built to demonstrate production desktop-app engineering — streaming LLM responses, local message-history persistence, a secure IPC architecture, real-time presence, and native OS integration.</p>
+        <p>Aurora is an agentic <strong>Bazzite / Linux assistant</strong> — a desktop AI app (Electron + React + TypeScript) that answers system questions by <em>actually inspecting your machine</em> instead of guessing. A local LLM running through Ollama decides which read-only inspection tools to call; the app runs them safely and feeds the results back, grounding every answer in your real system state.</p>
+
+        <h2>How it works</h2>
+        <ul>
+            <li><strong>Tool-calling loop</strong> — an orchestrator drives the model through a curated set of read-only tools (<code>gpu_info</code>, <code>disk_usage</code>, <code>os_status</code> via <code>rpm-ostree</code>), feeding tool output back until it can answer.</li>
+            <li><strong>Bazzite-aware persona</strong> — a system prompt grounds the model in atomic-Fedora / Bazzite realities (Flatpak, rpm-ostree layering, Distrobox, Homebrew — never editing the read-only base).</li>
+            <li><strong>Provider-agnostic model adapter</strong> — a clean LLM interface with a local Ollama implementation, unit-tested without a running model.</li>
+            <li><strong>Persistence</strong> — conversations, messages, a machine profile, and a tool audit trail stored in SQLite.</li>
+        </ul>
 
         <h2>Architecture</h2>
         <ul>
-            <li><strong>Shell:</strong> Electron with a clean main / preload / renderer split.</li>
-            <li><strong>Renderer:</strong> React + Vite + TypeScript (strict mode) — a virtualized message list, conversation list, composer, and presence/typing indicators.</li>
-            <li><strong>Main process:</strong> owns the SQLite database (better-sqlite3), the LLM API key, and the WebSocket client.</li>
+            <li><strong>Shell:</strong> Electron with a clean main / preload / renderer split; the renderer is a React + TypeScript chat UI.</li>
+            <li><strong>Main process:</strong> owns the tool registry, the agent orchestrator, the Ollama adapter, command execution, and the SQLite database.</li>
+            <li><strong>Safe command runner:</strong> tools shell out through a hardened executor — no shell interpolation, with timeouts and output truncation.</li>
             <li><strong>Bridge:</strong> a small typed <code>window.aurora</code> API exposed over <code>contextBridge</code> — the renderer never touches Node directly.</li>
         </ul>
 
-        <h2>Features</h2>
-        <ul>
-            <li><strong>Streaming chat</strong> — the main process calls the LLM with streaming enabled and forwards each token to the UI over IPC, appending incrementally.</li>
-            <li><strong>Persistent history</strong> — conversations and messages stored in SQLite, with paginated history loads.</li>
-            <li><strong>Real-time presence</strong> — a WebSocket channel drives typing indicators and a presence dot.</li>
-            <li><strong>Native integration</strong> — OS notifications for background replies, <code>aurora://</code> deep linking, and an auto-update path.</li>
-        </ul>
-
         <h2>Security model</h2>
-        <p>Aurora follows the correct Electron security posture: <code>contextIsolation: true</code>, <code>nodeIntegration: false</code>, and <code>sandbox: true</code>. The renderer can only call the small typed preload API; Node, the filesystem, the LLM key, and the database all stay in the main process.</p>
+        <p>Aurora follows the correct Electron posture — <code>contextIsolation: true</code>, <code>nodeIntegration: false</code>, <code>sandbox: true</code> — and goes further on the agent side: the model can only pick among <em>curated, fixed</em> read-only commands, never an arbitrary shell, and a permission gate auto-runs only the safe ones while flagging risky actions for confirmation. Node, the filesystem, command execution, and the database all stay in the main process.</p>
 
-        <p class="placeholder-note">[Actively in development — add screenshots and the repo / release link here.]</p>
+        <p class="placeholder-note">[MVP — read-only inspection, wired end to end. State-changing actions, voice, and an adaptive machine profile are on the roadmap. Add screenshots and the repo link here.]</p>
     </main>
 </body>
 </html>

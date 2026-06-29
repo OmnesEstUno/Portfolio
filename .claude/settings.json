@@ -37,7 +37,20 @@
       "Bash(curl -fsSL \"https://familymattershc.com/wp-content/uploads/Family-Matters-In-Home-Care.svg\" -o assets/images/family-matters-logo.svg)",
       "Bash(curl -fsSL \"https://paradyme.us/assets/images/Paradyme_Cathexis.svg\" -o assets/images/paradyme-logo.svg)",
       "Bash(curl -fsSL \"https://developer.apple.com/assets/elements/icons/swift/swift-96x96_2x.png\" -o assets/images/swift-logo.png)",
-      "Bash(echo \"SASS_EXIT:$?\")"
+      "Bash(echo \"SASS_EXIT:$?\")",
+      "Bash(echo \"exit $?\")",
+      "Bash(npx --yes sass style.scss /tmp/claude-1000/-var-home-Grey-Projects-Portfolio/fe56f2a5-357e-46c6-a136-b26cbc9771f1/scratchpad/out.css)",
+      "Bash(npx --yes sass style.scss /tmp/fresh.css)",
+      "Bash(echo \"---exit $?---\")",
+      "Bash(echo \"skill-link with rel: $?\")",
+      "Bash(python3 -m http.server 8000)",
+      "Bash(echo \"server pid: $!\")",
+      "Bash(curl -s -o /dev/null -w \"index.html → HTTP %{http_code}\\\\n\" http://localhost:8000/index.html)",
+      "Bash(curl -s -o /dev/null -w \"about_me.html → HTTP %{http_code}\\\\n\" http://localhost:8000/about_me.html)",
+      "Bash(curl -s -o /dev/null -w \"projects/aquamate.html → HTTP %{http_code}\\\\n\" http://localhost:8000/projects/aquamate.html)",
+      "Bash(grep -nA6 '\\\\.tl-card \\\\{|\\\\.project-card \\\\{|\\\\.edu-card \\\\{' style.scss)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8000/index.html)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8000/projects/aquamate.html)"
     ]
   }
 }
