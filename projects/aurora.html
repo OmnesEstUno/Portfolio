@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0f12">
+    <meta name="description" content="Aurora — a cross-platform Electron + React desktop AI chat client by Elliot Warren.">
+    <meta property="og:title" content="Aurora — Elliot Warren">
+    <meta property="og:description" content="Cross-platform desktop AI chat client: Electron + React + TypeScript, streaming LLM, SQLite, secure IPC.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/aurora-logo.svg">
+    <link rel="icon" href="../assets/images/Grey.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Aurora — Elliot Warren</title>
+</head>
+<body class="project-page">
+    <header class="site-header">
+        <nav class="nav container">
+            <a class="nav-link" href="../index.html#resume">← Back to portfolio</a>
+        </nav>
+    </header>
+    <main class="project-detail">
+        <h1 class="section-title">Aurora</h1>
+        <img class="project-logo-free" src="../assets/images/aurora-logo.svg" alt="Aurora logo">
+        <p>Aurora is a cross-platform desktop AI chat client built to demonstrate production desktop-app engineering — streaming LLM responses, local message-history persistence, a secure IPC architecture, real-time presence, and native OS integration.</p>
+
+        <h2>Architecture</h2>
+        <ul>
+            <li><strong>Shell:</strong> Electron with a clean main / preload / renderer split.</li>
+            <li><strong>Renderer:</strong> React + Vite + TypeScript (strict mode) — a virtualized message list, conversation list, composer, and presence/typing indicators.</li>
+            <li><strong>Main process:</strong> owns the SQLite database (better-sqlite3), the LLM API key, and the WebSocket client.</li>
+            <li><strong>Bridge:</strong> a small typed <code>window.aurora</code> API exposed over <code>contextBridge</code> — the renderer never touches Node directly.</li>
+        </ul>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Streaming chat</strong> — the main process calls the LLM with streaming enabled and forwards each token to the UI over IPC, appending incrementally.</li>
+            <li><strong>Persistent history</strong> — conversations and messages stored in SQLite, with paginated history loads.</li>
+            <li><strong>Real-time presence</strong> — a WebSocket channel drives typing indicators and a presence dot.</li>
+            <li><strong>Native integration</strong> — OS notifications for background replies, <code>aurora://</code> deep linking, and an auto-update path.</li>
+        </ul>
+
+        <h2>Security model</h2>
+        <p>Aurora follows the correct Electron security posture: <code>contextIsolation: true</code>, <code>nodeIntegration: false</code>, and <code>sandbox: true</code>. The renderer can only call the small typed preload API; Node, the filesystem, the LLM key, and the database all stay in the main process.</p>
+
+        <p class="placeholder-note">[Actively in development — add screenshots and the repo / release link here.]</p>
+    </main>
+</body>
+</html>

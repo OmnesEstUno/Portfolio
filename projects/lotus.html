@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0f12">
+    <meta name="description" content="Lotus — a full-stack personal-finance web app (React + Cloudflare Workers) by Elliot Warren.">
+    <meta property="og:title" content="Lotus — Elliot Warren">
+    <meta property="og:description" content="Full-stack personal-finance web app: React + TypeScript on a Cloudflare Workers + KV backend with TOTP 2FA.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="../assets/images/lotus-logo.png">
+    <link rel="icon" href="../assets/images/Grey.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <title>Lotus — Elliot Warren</title>
+</head>
+<body class="project-page">
+    <header class="site-header">
+        <nav class="nav container">
+            <a class="nav-link" href="../index.html#resume">← Back to portfolio</a>
+        </nav>
+    </header>
+    <main class="project-detail">
+        <h1 class="section-title">Lotus</h1>
+        <a class="project-logo-link" href="https://lotus-finance.me" target="_blank" rel="noopener">
+            <img class="project-logo-free" src="../assets/images/lotus-logo.png" alt="Lotus logo — visit lotus-finance.me">
+        </a>
+        <p>Lotus is a personal-finance web app that turns raw bank and credit-card exports into a clear picture of where money actually goes — built as a fully serverless, single-author full-stack project. It's live at <a href="https://lotus-finance.me" target="_blank" rel="noopener">lotus-finance.me</a>.</p>
+
+        <h2>Architecture</h2>
+        <ul>
+            <li><strong>Frontend:</strong> React + Vite + TypeScript, with Recharts for visualizations, PapaParse for CSV, and pdf.js for pay-stub parsing — deployed as a static site on GitHub Pages.</li>
+            <li><strong>Backend:</strong> a zero-dependency Cloudflare Worker API using only the Web Crypto API.</li>
+            <li><strong>Storage:</strong> Cloudflare KV for transactions, income, and auth.</li>
+            <li><strong>CI/CD:</strong> GitHub Actions builds the frontend and redeploys the Worker on every push.</li>
+        </ul>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Secure login</strong> — password plus TOTP two-factor auth (PBKDF2 + HMAC-SHA1), with first-run setup and QR provisioning.</li>
+            <li><strong>Data entry</strong> — upload Chase / credit-card CSVs, manually log expenses, or import pay stubs (PDF or CSV) with auto-parsed tax deductions.</li>
+            <li><strong>Dashboard</strong> — spending-trend line graphs, a monthly expense table, income-vs-expenditure comparison, and average monthly spend per category.</li>
+            <li><strong>Smart categorization</strong> — transactions auto-sorted into ~17 categories, with credit-card payments automatically skipped.</li>
+        </ul>
+
+        <h2>Engineering highlights</h2>
+        <ul>
+            <li>Implemented 2FA cryptography from primitives (PBKDF2, HMAC-SHA1) on the Web Crypto API — no auth libraries.</li>
+            <li>Kept the Worker dependency-free for a tiny, fast, auditable edge backend.</li>
+            <li>Origin-locked CORS and a JWT secret managed through Wrangler secrets.</li>
+        </ul>
+
+        <p class="placeholder-note">[Add dashboard screenshots here.]</p>
+    </main>
+</body>
+</html>
